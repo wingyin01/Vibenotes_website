@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibenotes - AI Personal Private Tutor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=32">
+</head>
+
+<body>
+
+    <!-- Floating Background Orbs - Shopify Style -->
+    <div class="floating-orbs">
+        <div class="floating-orb orb-1"></div>
+        <div class="floating-orb orb-2"></div>
+        <div class="floating-orb orb-3"></div>
+        <div class="floating-orb orb-4"></div>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scroll-progress"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-content">
+            <a href="#" class="logo">
+                <img src="assets/logo-light.svg" alt="Vibenotes Logo" class="logo-img">
+            </a>
+            <div class="nav-links" id="nav-links">
+                <a href="#introduction">Introduction</a>
+                <a href="#function">Function</a>
+                <a href="#flow">Flow</a>
+                <a href="#timeline">Timeline</a>
+                <a href="#pricing">Pricing</a>
+            </div>
+            <div class="nav-actions">
+                <a href="#" class="btn btn-secondary nav-cta">Get Early Access</a>
+                <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Introduction Section -->
+    <section id="introduction" class="hero section-glow">
+        <div class="hero-glow"></div>
+        <!-- Aurora Background Effect -->
+        <div class="aurora-bg"></div>
+        <!-- Morphing background shapes -->
+        <div class="morph-bg">
+            <div class="morph-shape" style="width: 400px; height: 400px; background: rgba(99, 102, 241, 0.15); top: 20%; left: 10%;"></div>
+            <div class="morph-shape" style="width: 300px; height: 300px; background: rgba(168, 85, 247, 0.1); bottom: 20%; right: 15%; animation-delay: -5s;"></div>
+        </div>
+        <div class="container hero-content">
+            <div class="hero-badge fade-in-up shimmer glow-border">Introducing Vibenotes</div>
+            <h1 class="fade-in-up" style="transition-delay: 0.1s;">
+                <span class="hero-title-line">
+                    <span class="hero-title-word">Not</span>
+                    <span class="hero-title-word">just</span>
+                    <span class="hero-title-word">a</span>
+                    <span class="hero-title-word">Chatbot.</span>
+                </span><br>
+                A personal <span class="animated-gradient-text" id="typing-text">Task Bot</span><span
+                    class="typing-cursor"></span>
+            </h1>
+            <p class="fade-in-up" style="transition-delay: 0.2s; max-width: 680px; margin: 0 auto 2.5rem;">
+                A personal teacher for each individual—from learning, planning, to revisioning.
+                <br class="hidden-mobile">
+                It doesn't just talk; it executes tasks to help you succeed.
+            </p>
+            <div class="fade-in-up" style="transition-delay: 0.3s; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="#function" class="btn btn-primary btn-elastic glow-pulse magnetic">Explore Functions</a>
+                <a href="#pricing" class="btn btn-secondary btn-elastic magnetic">View Pricing</a>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <span>Scroll</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+        </div>
+    </section>
+    
+    <!-- Animated Section Divider -->
+    <div class="section-divider"></div>
+
+    <!-- Zoom Parallax Section -->
+    <section class="zoom-parallax-section">
+        <div class="zoom-parallax-container">
+            <div class="zoom-parallax-sticky">
+                <div class="parallax-image-wrapper parallax-img-1">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&h=800&fit=crop" alt="Students collaborating">
+                </div>
+                <div class="parallax-image-wrapper parallax-img-2">
+                    <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=800&h=600&fit=crop" alt="Study materials">
+                </div>
+                <div class="parallax-image-wrapper parallax-img-3">
+                    <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&h=600&fit=crop" alt="Learning online">
+                </div>
+                <div class="parallax-image-wrapper parallax-img-4">
+                    <img src="https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?w=800&h=600&fit=crop" alt="Books and notes">
+                </div>
+                <div class="parallax-image-wrapper parallax-img-5">
+                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&h=600&fit=crop" alt="Digital learning">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Function Section (Bento Grid) -->
+    <section id="function" class="bento-section section-dark section-glow section-morph color-shift">
+        <div class="container">
+            <div class="text-center blur-reveal-dramatic" style="margin-bottom: 4rem;">
+                <div class="hero-badge shimmer glow-border" style="margin: 0 auto 1rem;">Core Functions</div>
+                <h2>Everything you need to <span class="animated-gradient-text">excel</span>.</h2>
+                <p style="color: var(--text-secondary);">Your entire study workflow, upgraded.</p>
+            </div>
+
+            <div class="bento-grid stagger-children reveal-sequence">
+                <!-- Graceful Foundation -->
+                <div class="bento-item medium spotlight-card fade-in-up hover-lift float-card">
+                    <div class="visual-preview visual-foundation">
+                        <div class="foundation-ui">
+                            <!-- Left: File Sidebar -->
+                            <div class="file-sidebar">
+                                <div class="sidebar-header">
+                                    <span class="folder-icon">📁</span>
+                                    <span class="folder-name">My Notes</span>
+                                </div>
+                                <div class="file-list-compact">
+                                    <div class="file-entry active">
+                                        <span class="entry-icon">📄</span>
+                                        <span class="entry-name">Physics.pdf</span>
+                                    </div>
+                                    <div class="file-entry">
+                                        <span class="entry-icon">📝</span>
+                                        <span class="entry-name">Chemistry</span>
+                                    </div>
+                                    <div class="file-entry">
+                                        <span class="entry-icon">📄</span>
+                                        <span class="entry-name">Biology.pdf</span>
+                                    </div>
+                                </div>
+                                <div class="file-actions">
+                                    <span class="action-btn">＋</span>
+                                    <span class="action-btn">📥</span>
+                                    <span class="action-btn">🗂️</span>
+                                </div>
+                            </div>
+                            <!-- Right: PDF with Annotations -->
+                            <div class="pdf-canvas">
+                                <div class="pdf-header">
+                                    <span class="pdf-title">Physics.pdf</span>
+                                    <div class="pencil-indicator">
+                                        <span class="pencil-icon">✏️</span>
+                                    </div>
+                                </div>
+                                <div class="pdf-content">
+                                    <div class="pdf-line"></div>
+                                    <div class="pdf-line short"></div>
+                                    <div class="pdf-line"></div>
+                                    <div class="handwriting-area">
+                                        <!-- Handwritten "Note!" text -->
+                                        <svg class="handwriting-text" viewBox="0 0 120 35">
+                                            <!-- N -->
+                                            <path class="hw-letter l1" d="M8,28 L8,8 L18,28 L18,8" />
+                                            <!-- o -->
+                                            <path class="hw-letter l2" d="M26,18 C26,14 30,12 34,14 C38,16 38,24 34,26 C30,28 26,24 26,18" />
+                                            <!-- t -->
+                                            <path class="hw-letter l3" d="M46,10 L46,26 M42,14 L50,14" />
+                                            <!-- e -->
+                                            <path class="hw-letter l4" d="M56,18 L64,18 C64,14 60,12 56,14 C52,18 56,28 64,24" />
+                                            <!-- ! -->
+                                            <path class="hw-letter l5" d="M72,8 L72,20 M72,26 L72,27" />
+                                            <!-- underline -->
+                                            <path class="hw-underline" d="M6,32 Q40,30 75,32" />
+                                        </svg>
+                                    </div>
+                                    <div class="pdf-line medium"></div>
+                                    <div class="pdf-line"></div>
+                                </div>
+                                <!-- AI Writing Tool Popup -->
+                                <div class="ai-writing-popup">
+                                    <div class="ai-sparkle">✨</div>
+                                    <div class="ai-options">
+                                        <span class="ai-option">Simplify</span>
+                                        <span class="ai-option active">Summarize</span>
+                                        <span class="ai-option">Rewrite</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bento-content">
+                        <div class="bento-icon glow-breathing">✨</div>
+                        <h3>Graceful Foundation</h3>
+                        <p>UI that supports all file operations (import, move, delete). Write directly on PDF with Apple Pencil. AI writing tools using Apple Intelligence.</p>
+                    </div>
+                </div>
+
+                <!-- Smart Indexing -->
+                <div class="bento-item spotlight-card fade-in-up hover-lift" style="transition-delay: 0.1s;">
+                    <div class="visual-preview visual-indexing">
+                        <div class="file-manager-ui">
+                            <div class="fm-header">
+                                <span class="fm-tab active">Sciences</span>
+                                <span class="fm-tab">Arts</span>
+                            </div>
+                            <div class="fm-list">
+                                <div class="fm-file">
+                                    <span class="fm-icon">🧬</span> Thermo.pdf
+                                    <span class="fm-tag">High</span>
+                                </div>
+                                <div class="fm-file floating-sort">
+                                    <span class="fm-icon">⚡️</span> Quantum.pdf
+                                    <span class="fm-tag">Hard</span>
+                                </div>
+                                <div class="fm-file">
+                                    <span class="fm-icon">🎨</span> History.pdf
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bento-content">
+                        <div class="bento-icon">🗂️</div>
+                        <h3>Smart Indexing</h3>
+                        <p class="text-small">Automatically classify all imported materials by type, topic, and questions. Switches modes based on PDF type.</p>
+                    </div>
+                </div>
+
+                <!-- Summaries -->
+                <div class="bento-item spotlight-card fade-in-up hover-lift" style="transition-delay: 0.2s;">
+                    <div class="visual-preview visual-summary">
+                        <div class="summary-app-interface">
+                            <!-- Left Sidebar: Summary & Chat -->
+                            <div class="app-sidebar">
+                                <div class="sidebar-tabs">
+                                    <span class="tab active">Summary</span>
+                                    <span class="tab">Notes</span>
+                                </div>
+                                <div class="sidebar-scroll-area">
+                                    <div class="slide-thumbnail"></div>
+                                    <div class="summary-text-block">
+                                        <div class="text-line"></div>
+                                        <div class="text-line"></div>
+                                        <div class="text-line short"></div>
+                                        <div class="text-line"></div>
+                                        <div class="text-line medium"></div>
+                                    </div>
+                                </div>
+                                <div class="sidebar-input">
+                                    <span class="input-placeholder">Ask about this page...</span>
+                                    <div class="send-icon">↑</div>
+                                </div>
+                            </div>
+                            <!-- Right Main View: Lecture Slide -->
+                            <div class="app-main-view">
+                                <div class="lecture-slide-large">
+                                    <div class="slide-large-header">
+                                        <div class="slide-title-bar"></div>
+                                    </div>
+                                    <div class="slide-large-content">
+                                        <div class="bullet-point">
+                                            <span class="bullet">●</span>
+                                            <span class="b-line"></span>
+                                        </div>
+                                        <div class="bullet-point">
+                                            <span class="bullet" style="color: var(--accent-secondary)">●</span>
+                                            <span class="b-line long"></span>
+                                        </div>
+                                        <div class="bullet-point">
+                                            <span class="bullet">●</span>
+                                            <span class="b-line medium"></span>
+                                        </div>
+                                        <div class="sub-bullet">
+                                            <span class="b-line short"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bento-content">
+                        <div class="bento-icon">📝</div>
+                        <h3>Smart Summaries</h3>
+                        <p class="text-small">Summarize entire documents or page-by-page. Ask follow-up questions based on the summary.</p>
+                    </div>
+                </div>
+
+                <!-- Podcast Generation -->
+                <div class="bento-item medium spotlight-card fade-in-up hover-lift float-card" style="transition-delay: 0.3s;">
+                    <div class="visual-preview visual-podcast">
+                        <div class="podcast-interface">
+                            <!-- Left: Playlist -->
+                            <div class="podcast-playlist">
+                                <div class="playlist-header">Generated Episodes</div>
+                                <div class="playlist-item">
+                                    <span class="play-icon-small">▶</span>
+                                    <div class="playlist-info">
+                                        <div class="ep-title">1. Intro to Physics</div>
+                                        <div class="ep-time">15:20 • Completed</div>
+                                    </div>
+                                </div>
+                                <div class="playlist-item active">
+                                    <span class="play-icon-small active">ll</span>
+                                    <div class="playlist-info">
+                                        <div class="ep-title">2. Quantum Mechanics</div>
+                                        <div class="ep-time">Playing • 24:05</div>
+                                    </div>
+                                    <div class="sound-wave-mini">
+                                        <span></span><span></span><span></span>
+                                    </div>
+                                </div>
+                                <div class="playlist-item">
+                                    <span class="play-icon-small">▶</span>
+                                    <div class="playlist-info">
+                                        <div class="ep-title">3. Thermodynamics</div>
+                                        <div class="ep-time">18:30</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Right: Player -->
+                            <div class="podcast-main-player">
+                                <div class="album-art-large">
+                                    <span class="art-icon">⚛️</span>
+                                    <div class="art-wave-overlay"></div>
+                                </div>
+                                <div class="track-info-large">
+                                    <div class="track-title">Quantum Mechanics</div>
+                                    <div class="track-subtitle">Lecture Series • Physics</div>
+                                </div>
+                                <div class="progress-container">
+                                    <div class="time-stamp">12:45</div>
+                                    <div class="progress-track">
+                                        <div class="progress-fill"></div>
+                                        <div class="progress-knob"></div>
+                                    </div>
+                                    <div class="time-stamp">24:05</div>
+                                </div>
+                                <div class="player-controls-large">
+                                    <span class="control-btn secondary">1x</span>
+                                    <span class="control-btn primary">❚❚</span>
+                                    <span class="control-btn secondary">⏭</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bento-content">
+                        <div class="bento-icon">🎙️</div>
+                        <h3>Podcast Generation</h3>
+                        <p>Transforms lecture slides into natural-sounding podcasts. Adjust voice, tone, and speed for learning on the go.</p>
+                    </div>
+                </div>
+
+                <!-- Lecture Mode -->
+                <div class="bento-item medium spotlight-card fade-in-up hover-lift float-card" style="transition-delay: 0.4s;">
+                    <div class="visual-preview visual-lecture">
+                        <div class="lecture-container">
+                            <!-- Notes Page -->
+                            <div class="notes-page">
+                                <div class="notes-header">
+                                    <span class="notes-title">📄 Thermodynamics.pdf</span>
+                                    <span class="page-indicator">Page 3 of 8</span>
+                                </div>
+                                <div class="notes-body">
+                                    <div class="note-line"></div>
+                                    <div class="note-line short"></div>
+                                    <div class="note-line"></div>
+                                    <div class="note-highlight-section">
+                                        <div class="highlight-marker"></div>
+                                        <div class="note-line highlighted"></div>
+                                        <div class="note-line highlighted short"></div>
+                                    </div>
+                                    <div class="note-line"></div>
+                                    <div class="note-line medium"></div>
+                                </div>
+                                <div class="page-nav">
+                                    <span class="nav-arrow">‹</span>
+                                    <div class="page-dots">
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot active"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                    </div>
+                                    <span class="nav-arrow">›</span>
+                                </div>
+                            </div>
+                            <!-- AI Lecturer Speech -->
+                            <div class="lecturer-panel">
+                                <div class="lecturer-bubble">
+                                    <div class="bubble-content">
+                                        <span class="speech-text">Energy is conserved in all processes...</span>
+                                        <span class="typing-cursor"></span>
+                                    </div>
+                                </div>
+                                <div class="lecturer-avatar">
+                                    <div class="avatar-glow"></div>
+                                    <span class="avatar-emoji">👨‍🏫</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bento-content">
+                        <div class="bento-icon">👨‍🏫</div>
+                        <h3>AI Lecture Mode</h3>
+                        <p>Your personal AI Lecturer. Guides you through notes with smooth transitions, explanations, and visual cues.</p>
+                    </div>
+                </div>
+
+                <!-- Hint System -->
+                <div class="bento-item spotlight-card fade-in-up hover-lift" style="transition-delay: 0.5s;">
+                    <div class="visual-preview visual-hint">
+                        <div class="hint-interaction">
+                            <div class="app-card" style="width: 85%; height: 85%;">
+                                <div class="card-header">
+                                    <div class="card-dot red"></div>
+                                    <div class="card-dot yellow"></div>
+                                    <div class="card-dot green"></div>
+                                </div>
+                                <div class="card-body"
+                                    style="align-items: center; justify-content: flex-start; padding-top: 1.5rem;">
+                                    <div class="hint-ui">
+                                        <div class="hint-q-line"></div>
+                                        <div class="hint-q-line" style="width: 60%"></div>
+                                        <div class="hint-btn" style="margin-top: 1rem;">
+                                            <span class="bulb-icon">💡</span> Show Hint
+                                        </div>
+                                        <div class="hint-box">
+                                            <div class="h-line"></div>
+                                            <div class="h-line" style="width: 70%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bento-content">
+                        <div class="bento-icon">💡</div>
+                        <h3>Hint System</h3>
+                        <p class="text-small">Guides you through questions with step-by-step hints. Dynamic generation based on question nature.</p>
+                    </div>
+                </div>
+
+                <!-- Quiz Generation -->
+                <div class="bento-item spotlight-card fade-in-up hover-lift" style="transition-delay: 0.6s;">
+                    <div class="visual-preview visual-quiz">
+                        <div class="quiz-stack">
+                            <div class="app-card" style="width: 80%; height: 90%; transform: rotate(2deg);">
+                                <div class="card-header">
+                                    <div class="card-dot red"></div>
+                                    <div class="card-dot yellow"></div>
+                                    <div class="card-dot green"></div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="quiz-ui">
+                                        <div class="quiz-q-line"></div>
+                                        <div class="quiz-opt">A. Mitochondria</div>
+                                        <div class="quiz-opt selected">
+                                            B. Nucleus <span class="check">✓</span>
+                                        </div>
+                                        <div class="quiz-opt">C. Ribosome</div>
+                                    </div>
+                                    <div class="grade-badge"
+                                        style="top: 10px; right: 10px; transform: scale(1) rotate(15deg);">A+</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bento-content">
+                        <div class="bento-icon">✍️</div>
+                        <h3>Quiz Generation</h3>
+                        <p class="text-small">Generates quizzes matching your curriculum. Supports MCQs, short/long questions, and mock papers.</p>
+                    </div>
+                </div>
+
+                <!-- Adaptive Scheduler -->
+                <div class="bento-item medium spotlight-card fade-in-up hover-lift float-card" style="transition-delay: 0.7s;">
+                    <div class="visual-preview visual-scheduler">
+                        <div class="scheduler-timeline" style="justify-content: center; align-items: center;">
+                            <div class="app-card" style="width: 90%; height: 85%;">
+                                <div class="card-header">
+                                    <div class="card-dot red"></div>
+                                    <div class="card-dot yellow"></div>
+                                    <div class="card-dot green"></div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="calendar-grid">
+                                        <div class="calendar-cell"></div>
+                                        <div class="calendar-cell"></div>
+                                        <div class="calendar-cell highlight"></div>
+                                        <div class="calendar-cell"></div>
+                                        <div class="calendar-cell active"></div>
+                                        <div class="calendar-cell"></div>
+                                        <div class="calendar-cell"></div>
+                                        <div class="calendar-cell"></div>
+                                        <div class="calendar-cell active"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bento-content">
+                        <div class="bento-icon">📅</div>
+                        <h3>Adaptive Scheduler</h3>
+                        <p>Builds a personalized study plan based on exam dates. Syncs with Google Calendar and adjusts to your progress.</p>
+                    </div>
+                </div>
+
+                <!-- Intelligent Review -->
+                <div class="bento-item large spotlight-card fade-in-up hover-lift scroll-glow" style="transition-delay: 0.8s;">
+                    <div class="visual-preview visual-review">
+                        <div class="review-dashboard" style="position: relative;">
+                            <div class="app-card"
+                                style="width: 60%; height: 70%; right: 10px; position: absolute; bottom: 20px; z-index: 2;">
+                                <div class="card-header">
+                                    <div class="card-dot red"></div>
+                                    <div class="card-dot yellow"></div>
+                                    <div class="card-dot green"></div>
+                                </div>
+                                <div class="card-body" style="align-items: center; justify-content: center;">
+                                    <svg viewBox="0 0 36 36" class="circular-chart" style="width: 80px; height: 80px;">
+                                        <path class="circle-bg"
+                                            d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                        <path class="circle" stroke-dasharray="85, 100"
+                                            d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                        <text x="18" y="20.35" class="percentage" style="font-size: 0.6rem;">85%</text>
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="weakness-card" style="position: absolute; left: 20px; top: 30px; z-index: 1;">
+                                <div class="w-header">Focus Area</div>
+                                <div class="w-topic">Thermo</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bento-content">
+                        <div class="bento-icon">✅</div>
+                        <h3>Intelligent Review</h3>
+                        <p>Automatically checks and evaluates answers. Analyzes performance and weaknesses with clear visuals.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Animated Section Divider -->
+    <div class="section-divider"></div>
+
+    <!-- AI Image Section - Between Function and Flow -->
+    <section class="ai-image-section section-dark">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <div class="hero-badge shimmer glow-border" style="margin: 0 auto 1rem;">AI-Powered Learning</div>
+                <h2 class="reveal-blur">Experience the <span class="text-gradient">Future</span></h2>
+                <p class="reveal-blur" style="transition-delay: 0.1s;">See how AI transforms your study materials into interactive learning experiences.</p>
+            </div>
+        </div>
+        
+        <!-- AI Image with Wave Effect - Outside container for full width -->
+        <div class="flow-hero-image-container">
+            <div id="reveal-wave-image" class="reveal-wave-canvas"></div>
+        </div>
+    </section>
+
+    <!-- Animated Section Divider -->
+    <div class="section-divider"></div>
+
+    <!-- Apple-Style Scroll-Driven Flow Section -->
+    <section id="flow" class="apple-scroll-flow">
+        
+        <!-- Three.js Nebula Shader Background -->
+        <canvas id="flow-nebula-canvas" class="flow-nebula-background"></canvas>
+        
+        <!-- Sticky Container for Scroll Animations -->
+        <div class="flow-scroll-container">
+            
+            <!-- Scene 1: Hero Title (Sticky) -->
+            <div class="flow-scene scene-hero active">
+                <div class="container">
+                    <div class="hero-badge shimmer glow-border">The Journey</div>
+                    
+                    <h2 class="flow-main-title">
+                        From <span class="gradient-text-flow">Beginner</span><br>
+                        to <span class="gradient-text-flow">Expert</span>
+                    </h2>
+                    
+                    <p class="flow-main-subtitle">Scroll to see how Vibenotes transforms your learning</p>
+                </div>
+            </div>
+
+            <!-- Scene 2: The Problem (Chaos) -->
+            <div class="flow-scene scene-problem">
+                <div class="container">
+                    <h3 class="scene-title">You start here...</h3>
+                    <div class="chaos-visual">
+                        <div class="chaos-item" data-chaos="1">📄</div>
+                        <div class="chaos-item" data-chaos="2">📝</div>
+                        <div class="chaos-item" data-chaos="3">📁</div>
+                        <div class="chaos-item" data-chaos="4">📄</div>
+                        <div class="chaos-item" data-chaos="5">📝</div>
+                        <div class="chaos-item" data-chaos="6">📁</div>
+                        <div class="chaos-question" data-chaos="q1">?</div>
+                        <div class="chaos-question" data-chaos="q2">?</div>
+                        <div class="chaos-question" data-chaos="q3">?</div>
+                    </div>
+                    <p class="scene-description">Scattered notes. Overwhelming materials. No clear direction.</p>
+                </div>
+            </div>
+
+            <!-- Scene 3: The Explosion (BOOM) -->
+            <div class="flow-scene scene-explosion">
+                <div class="container">
+                    
+                    <!-- Title for explosion scene -->
+                    <h3 class="scene-title" style="position: absolute; top: 10%; left: 50%; transform: translateX(-50%); z-index: 25; margin: 0;">AI organizes everything</h3>
+                    
+                    <!-- Central Logo (hidden) -->
+                    <div class="explosion-center-logo">
+                        <div class="logo-glow"></div>
+                        <span class="logo-text">VIBE NOTES</span>
+                        <div class="ai-organizing-text">AI ORGANIZING...</div>
+                    </div>
+                    
+
+                    <!-- Background Image -->
+                    <div class="explosion-bg-image">
+                        <img src="Gemini_Generated_Image_n0ursgn0ursgn0ur.png" alt="AI Organizing">
+                    </div>
+                    
+                    <!-- Feature Cards (will explode out) -->
+                    <div class="feature-cards-container">
+                        <div class="feature-card-mini" data-position="tl" data-stage="foundation">
+                            <span class="card-icon-mini">🗂️</span>
+                            <span class="card-name-mini">Smart Indexing</span>
+                        </div>
+                        <div class="feature-card-mini" data-position="t" data-stage="foundation">
+                            <span class="card-icon-mini">📝</span>
+                            <span class="card-name-mini">AI Summaries</span>
+                        </div>
+                        <div class="feature-card-mini" data-position="tr" data-stage="learning">
+                            <span class="card-icon-mini">🎙️</span>
+                            <span class="card-name-mini">Podcast</span>
+                        </div>
+                        <div class="feature-card-mini" data-position="l" data-stage="learning">
+                            <span class="card-icon-mini">👨‍🏫</span>
+                            <span class="card-name-mini">AI Lecturer</span>
+                        </div>
+                        <div class="feature-card-mini" data-position="r" data-stage="learning">
+                            <span class="card-icon-mini">💡</span>
+                            <span class="card-name-mini">Hints</span>
+                        </div>
+                        <div class="feature-card-mini" data-position="bl" data-stage="practice">
+                            <span class="card-icon-mini">✍️</span>
+                            <span class="card-name-mini">Quiz</span>
+                        </div>
+                        <div class="feature-card-mini" data-position="b" data-stage="practice">
+                            <span class="card-icon-mini">📅</span>
+                            <span class="card-name-mini">Schedule</span>
+                        </div>
+                        <div class="feature-card-mini" data-position="br" data-stage="mastery">
+                            <span class="card-icon-mini">✅</span>
+                            <span class="card-name-mini">Review</span>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!-- Scene 4: Four Function Blocks (Square Grid) -->
+            <div class="flow-scene scene-reorganize">
+                <div class="container">
+                    <h3 class="scene-title">Four Core Functions</h3>
+                    
+                    <!-- 2x2 Square Grid of Function Blocks -->
+                    <div class="function-blocks-grid">
+                        
+                        <!-- Block 1: Foundation -->
+                        <div class="function-block" data-block="1">
+                            <div class="block-number">01</div>
+                            <h4 class="block-title">Foundation</h4>
+                            <div class="block-features">
+                                <div class="block-feature-item">
+                                    <span class="feature-icon">🗂️</span>
+                                    <div class="feature-content">
+                                        <div class="feature-name">Smart Indexing</div>
+                                        <div class="feature-desc">Auto-classify all materials by type and topic</div>
+                                    </div>
+                                </div>
+                                <div class="block-feature-item">
+                                    <span class="feature-icon">📝</span>
+                                    <div class="feature-content">
+                                        <div class="feature-name">AI Summaries</div>
+                                        <div class="feature-desc">Instant understanding of complex topics</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Block 2: Active Learning -->
+                        <div class="function-block" data-block="2">
+                            <div class="block-number">02</div>
+                            <h4 class="block-title">Active Learning</h4>
+                            <div class="block-features">
+                                <div class="block-feature-item">
+                                    <span class="feature-icon">👨‍🏫</span>
+                                    <div class="feature-content">
+                                        <div class="feature-name">AI Lecturer</div>
+                                        <div class="feature-desc">Personal teaching with smooth transitions</div>
+                                    </div>
+                                </div>
+                                <div class="block-feature-item">
+                                    <span class="feature-icon">🎙️</span>
+                                    <div class="feature-content">
+                                        <div class="feature-name">Podcast Mode</div>
+                                        <div class="feature-desc">Learn on the go with natural audio</div>
+                                    </div>
+                                </div>
+                                <div class="block-feature-item">
+                                    <span class="feature-icon">💡</span>
+                                    <div class="feature-content">
+                                        <div class="feature-name">Smart Hints</div>
+                                        <div class="feature-desc">Guided learning through problems</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Block 3: Practice & Test -->
+                        <div class="function-block" data-block="3">
+                            <div class="block-number">03</div>
+                            <h4 class="block-title">Practice & Test</h4>
+                            <div class="block-features">
+                                <div class="block-feature-item">
+                                    <span class="feature-icon">✍️</span>
+                                    <div class="feature-content">
+                                        <div class="feature-name">Quiz Generator</div>
+                                        <div class="feature-desc">Test yourself with adaptive questions</div>
+                                    </div>
+                                </div>
+                                <div class="block-feature-item">
+                                    <span class="feature-icon">📅</span>
+                                    <div class="feature-content">
+                                        <div class="feature-name">Smart Schedule</div>
+                                        <div class="feature-desc">Adaptive planning based on your progress</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Block 4: Mastery -->
+                        <div class="function-block" data-block="4">
+                            <div class="block-number">04</div>
+                            <h4 class="block-title">Mastery</h4>
+                            <div class="block-features">
+                                <div class="block-feature-item">
+                                    <span class="feature-icon">✅</span>
+                                    <div class="feature-content">
+                                        <div class="feature-name">Auto Review</div>
+                                        <div class="feature-desc">Track progress and identify weaknesses</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="block-stats">
+                                <div class="stat-item">
+                                    <div class="stat-value">95%</div>
+                                    <div class="stat-label">SUCCESS RATE</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-value">10x</div>
+                                    <div class="stat-label">FASTER</div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scene 5: Final Message -->
+            <div class="flow-scene scene-finale">
+                <div class="container">
+                    <h2 class="finale-title">You've reached expert level</h2>
+                    <p class="finale-subtitle">Ready to start your journey?</p>
+                    <a href="#pricing" class="btn btn-primary btn-large glow-pulse">Get Started Today</a>
+                </div>
+            </div>
+
+        </div>
+        
+        <!-- Scroll Progress Indicator -->
+        <div class="flow-scroll-progress">
+            <div class="progress-bar"></div>
+        </div>
+        
+    </section>
+
+    <!-- Animated Section Divider -->
+    <div class="section-divider"></div>
+
+    <!-- Development Timeline Section -->
+    <section id="timeline" class="section-dark section-glow section-morph color-shift">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <div class="hero-badge shimmer glow-border" style="margin: 0 auto 1rem;">Our Journey</div>
+                <h2 class="reveal-blur">Development <span class="text-gradient">Timeline</span></h2>
+                <p class="reveal-blur" style="transition-delay: 0.1s;">Our path to the ultimate AI study companion.</p>
+            </div>
+
+            <div class="roadmap-steps">
+                <div class="step fade-in-up">
+                    <div class="step-marker done">✓</div>
+                    <div class="step-content">
+                        <h3>Foundation Built</h3>
+                        <p>PDF drawing, typing, smart classification, and hint systems are nearly done.</p>
+                    </div>
+                </div>
+                <div class="step fade-in-up" style="transition-delay: 0.1s;">
+                    <div class="step-marker active">⚡️</div>
+                    <div class="step-content">
+                        <h3>In Progress</h3>
+                        <p>Quiz generation and podcast systems are in active development.</p>
+                    </div>
+                </div>
+                <div class="step fade-in-up" style="transition-delay: 0.2s;">
+                    <div class="step-marker">🚀</div>
+                    <div class="step-content">
+                        <h3>Next Up</h3>
+                        <p>Lecture Mode and Adaptive Scheduler entering the next phase.</p>
+                    </div>
+                </div>
+                <div class="step fade-in-up" style="transition-delay: 0.3s;">
+                    <div class="step-marker">🏁</div>
+                    <div class="step-content">
+                        <h3>Full Release</h3>
+                        <p>Overall integration, project finalization, and full system demonstration by Spring.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Animated Section Divider -->
+    <div class="section-divider"></div>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="section-elevated section-glow section-morph color-shift">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 4rem;">
+                <div class="hero-badge shimmer glow-border" style="margin: 0 auto 1rem;">Investment</div>
+                <h2 class="reveal-blur">Simple <span class="text-gradient">Pricing</span></h2>
+                <p class="reveal-blur" style="transition-delay: 0.1s;">Invest in your education.</p>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="pricing-card spotlight-card fade-in-up">
+                    <h3>Free</h3>
+                    <div class="price">$0<span>/mo</span></div>
+                    <ul class="pricing-features">
+                        <li>Basic Note Taking</li>
+                        <li>5 AI Summaries/mo</li>
+                        <li>Standard Support</li>
+                    </ul>
+                    <a href="#" class="btn btn-secondary" style="width: 100%;">Get Started</a>
+                </div>
+
+                <div class="pricing-card featured spotlight-card fade-in-up" style="transition-delay: 0.1s;">
+                    <div
+                        style="position: absolute; top: 1rem; right: 1rem; font-size: 0.8rem; color: var(--accent-primary); border: 1px solid var(--accent-primary); padding: 0.2rem 0.5rem; border-radius: 20px;">
+                        Popular</div>
+                    <h3>Pro Student</h3>
+                    <div class="price">$9<span>/mo</span></div>
+                    <ul class="pricing-features">
+                        <li>Unlimited AI Summaries</li>
+                        <li>Quiz Generation</li>
+                        <li>Lecture Mode</li>
+                        <li>Priority Support</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary" style="width: 100%;">Start Free Trial</a>
+                </div>
+
+                <div class="pricing-card spotlight-card fade-in-up" style="transition-delay: 0.2s;">
+                    <h3>University</h3>
+                    <div class="price">$19<span>/mo</span></div>
+                    <ul class="pricing-features">
+                        <li>Everything in Pro</li>
+                        <li>Team Collaboration</li>
+                        <li>Advanced Analytics</li>
+                        <li>API Access</li>
+                    </ul>
+                    <a href="#" class="btn btn-secondary" style="width: 100%;">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="logo" style="margin-bottom: 1rem; display: inline-block;">
+                        <img src="assets/logo-light.svg" alt="Vibenotes Logo" class="logo-img">
+                    </a>
+                    <p class="text-small" style="max-width: 300px; margin-bottom: 2rem;">
+                        The AI-powered personal private tutor that transforms how you learn, plan, and revise.
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Download</a></li>
+                        <li><a href="#">Changelog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Stay Updated</h4>
+                    <p class="text-small" style="margin-bottom: 1rem;">Join our newsletter for the latest updates.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email" class="newsletter-input">
+                        <button type="button" class="btn btn-primary" style="padding: 0.8rem;">→</button>
+                    </form>
+                </div>
+            </div>
+            <div
+                style="margin-top: 4rem; padding-top: 2rem; border-top: 1px solid var(--border-subtle); text-align: center;">
+                <p class="text-small">&copy; 2025 Vibenotes. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top-btn" id="scroll-top-btn" aria-label="Scroll to top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="reveal-wave-image.js?v=2"></script>
+    <script src="script.js?v=23"></script>
+    <script>
+        // Initialize the reveal wave image effect
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, initializing RevealWaveImage...');
+            const container = document.getElementById('reveal-wave-image');
+            console.log('Container found:', container);
+            console.log('Container dimensions:', container.clientWidth, 'x', container.clientHeight);
+            
+            if (container && container.clientWidth > 0 && container.clientHeight > 0) {
+                new RevealWaveImage('reveal-wave-image', 'AI_image.jpeg', {
+                    waveSpeed: 0.2,
+                    waveFrequency: 0.7,
+                    waveAmplitude: 0.5,
+                    revealRadius: 0.5,
+                    revealSoftness: 1,
+                    pixelSize: 2,
+                    mouseRadius: 0.4
+                });
+            } else {
+                console.error('Container not found or has zero dimensions!');
+                // Try again after a short delay
+                setTimeout(function() {
+                    console.log('Retrying initialization...');
+                    console.log('Container dimensions now:', container.clientWidth, 'x', container.clientHeight);
+                    new RevealWaveImage('reveal-wave-image', 'AI_image.jpeg', {
+                        waveSpeed: 0.2,
+                        waveFrequency: 0.7,
+                        waveAmplitude: 0.5,
+                        revealRadius: 0.5,
+                        revealSoftness: 1,
+                        pixelSize: 2,
+                        mouseRadius: 0.4
+                    });
+                }, 100);
+            }
+        });
+    </script>
+</body>
+
+</html>
+
+</html>

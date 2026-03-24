@@ -1,0 +1,59 @@
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <clipPath id="round"><rect x="0" y="0" width="1024" height="1024" rx="224"/></clipPath>
+    <radialGradient id="rg1" cx="18%" cy="78%" r="80%">
+      <stop offset="0"  stop-color="#7C3AED" stop-opacity="0.3"/>
+      <stop offset="1"  stop-color="#C026D3" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="rg2" cx="85%" cy="18%" r="80%">
+      <stop offset="0"  stop-color="#6366F1" stop-opacity="0.3"/>
+      <stop offset="1"  stop-color="#4F46E5" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="base" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0F0F1A"/>
+      <stop offset="1" stop-color="#1A1625"/>
+    </linearGradient>
+    <filter id="bloom" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="14" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softCore" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="g"/>
+      <feBlend in="SourceGraphic" in2="g" mode="screen"/>
+    </filter>
+    <linearGradient id="ink" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#A78BFA"/>
+      <stop offset="1" stop-color="#22D3EE" stop-opacity="0.95"/>
+    </linearGradient>
+  </defs>
+
+  <g clip-path="url(#round)">
+    <rect width="1024" height="1024" fill="url(#base)"/>
+    <rect width="1024" height="1024" fill="url(#rg1)"/>
+    <rect width="1024" height="1024" fill="url(#rg2)"/>
+  </g>
+
+  <g transform="translate(146.286,146.286)" filter="url(#bloom)" opacity="0.95">
+    <rect x="0" y="0" width="731.43" height="731.43" rx="73.14" fill="#2A2A3E" fill-opacity="0.92"/>
+    <path d="M731.43 182.86 L548.57 0 v150.86 c0 18.29 13.71 32 32 32 h150.86 z" fill="#3B3555" opacity="0.85"/>
+  </g>
+
+  <g transform="translate(146.286,146.286)">
+    <path d="M125.71 480 C200 480, 226.29 388.57, 274.29 388.57 C322.29 388.57, 348.57 571.43, 396.57 571.43 C444.57 571.43, 470.86 434.29, 518.86 434.29 C566.86 434.29, 593.14 525.71, 641.14 525.71 C689.14 525.71, 715.43 480, 763.43 480" fill="none" stroke="#8B5CF6" stroke-opacity="0.5" stroke-width="41.14" filter="url(#bloom)"/>
+    <path d="M125.71 480 C200 480, 226.29 388.57, 274.29 388.57 C322.29 388.57, 348.57 571.43, 396.57 571.43 C444.57 571.43, 470.86 434.29, 518.86 434.29 C566.86 434.29, 593.14 525.71, 641.14 525.71 C689.14 525.71, 715.43 480, 763.43 480" fill="none" stroke="url(#ink)" stroke-width="29.71" stroke-linecap="round" stroke-linejoin="round" filter="url(#softCore)"/>
+    <path d="M125.71 480 C200 480, 226.29 388.57, 274.29 388.57 C322.29 388.57, 348.57 571.43, 396.57 571.43 C444.57 571.43, 470.86 434.29, 518.86 434.29 C566.86 434.29, 593.14 525.71, 641.14 525.71 C689.14 525.71, 715.43 480, 763.43 480" fill="none" stroke="#FFFFFF" stroke-opacity="0.4" stroke-width="6.86"/>
+    <path d="M165.71 617.14 H611.43" stroke="#22D3EE" stroke-width="20.57" stroke-linecap="round" opacity="0.6"/>
+    
+    <!-- AI Sparkles -->
+    <g filter="url(#bloom)">
+      <path d="M 662.86 228.57 L 674.29 251.43 L 697.14 262.86 L 674.29 274.29 L 662.86 297.14 L 651.43 274.29 L 628.57 262.86 L 651.43 251.43 Z" fill="url(#ink)" opacity="0.95"/>
+      <path d="M 137.14 205.71 L 146.29 224 L 164.57 233.14 L 146.29 242.29 L 137.14 260.57 L 128 242.29 L 109.71 233.14 L 128 224 Z" fill="#FBBF24" opacity="0.85"/>
+      <path d="M 685.71 594.29 L 692.57 608 L 706.29 614.86 L 692.57 621.71 L 685.71 635.43 L 678.86 621.71 L 665.14 614.86 L 678.86 608 Z" fill="#22D3EE" opacity="0.85"/>
+      <path d="M 91.43 320 L 97.14 331.43 L 108.57 337.14 L 97.14 342.86 L 91.43 354.29 L 85.71 342.86 L 74.29 337.14 L 85.71 331.43 Z" fill="#A78BFA" opacity="0.8"/>
+    </g>
+  </g>
+</svg>
+

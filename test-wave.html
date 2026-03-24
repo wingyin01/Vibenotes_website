@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wave Effect Test</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #0a0a0a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: sans-serif;
+            color: white;
+        }
+        
+        .container {
+            text-align: center;
+            max-width: 800px;
+            padding: 2rem;
+        }
+        
+        h1 {
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #6366f1, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .wave-container {
+            width: 600px;
+            height: 400px;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.5),
+                0 0 80px rgba(99, 102, 241, 0.4),
+                0 0 120px rgba(168, 85, 247, 0.3);
+        }
+        
+        #wave-effect {
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+        
+        .instructions {
+            margin-top: 2rem;
+            padding: 1rem;
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 10px;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+        }
+        
+        .instructions p {
+            margin: 0.5rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Wave Effect Test</h1>
+        
+        <div class="wave-container">
+            <div id="wave-effect"></div>
+        </div>
+        
+        <div class="instructions">
+            <p><strong>Expected behavior:</strong></p>
+            <p>✓ Image should appear in black & white with dithering effect</p>
+            <p>✓ Continuous wave animation should be visible</p>
+            <p>✓ Hover over image to reveal color in a circular area</p>
+            <p>✓ Move mouse to see ripple effects</p>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="reveal-wave-image.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Initializing wave effect...');
+            
+            const waveEffect = new RevealWaveImage('wave-effect', 'AI_image.jpeg', {
+                waveSpeed: 0.2,
+                waveFrequency: 0.7,
+                waveAmplitude: 0.5,
+                revealRadius: 0.5,
+                revealSoftness: 1,
+                pixelSize: 2,
+                mouseRadius: 0.4
+            });
+            
+            console.log('Wave effect initialized:', waveEffect);
+        });
+    </script>
+</body>
+</html>
+
