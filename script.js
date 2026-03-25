@@ -1459,6 +1459,134 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 /* ═══════════════════════════════════════════════════════════════════════════
+   INTRO HERO - WEBGL BACKGROUND (Revolution-style energy field)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+document.addEventListener('DOMContentLoaded', () => {
+    const canvas = document.getElementById('intro-nebula-canvas');
+    if (!canvas || typeof THREE === 'undefined') return;
+
+    const heroSection = document.getElementById('introduction');
+    if (!heroSection) return;
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setClearColor(0x000000, 0);
+
+    const clock = new THREE.Clock();
+
+    const vertexShader = `
+        varying vec2 vUv;
+        void main() {
+            vUv = uv;
+            gl_Position = vec4(position, 1.0);
+        }
+    `;
+
+    const fragmentShader = `
+        precision mediump float;
+        uniform vec2 iResolution;
+        uniform float iTime;
+        uniform vec2 iMouse;
+        varying vec2 vUv;
+
+        float hash(vec2 p){
+            return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453123);
+        }
+
+        float noise(in vec2 p){
+            vec2 i = floor(p);
+            vec2 f = fract(p);
+            vec2 u = f * f * (3.0 - 2.0 * f);
+            return mix(mix(hash(i + vec2(0.0,0.0)), hash(i + vec2(1.0,0.0)), u.x),
+                       mix(hash(i + vec2(0.0,1.0)), hash(i + vec2(1.0,1.0)), u.x), u.y);
+        }
+
+        float fbm(vec2 p){
+            float v = 0.0;
+            float a = 0.5;
+            mat2 m = mat2(1.6, 1.2, -1.2, 1.6);
+            for (int i = 0; i < 5; i++) {
+                v += a * noise(p);
+                p = m * p;
+                a *= 0.55;
+            }
+            return v;
+        }
+
+        void main() {
+            vec2 uv = vUv;
+            vec2 p = (uv - 0.5) * vec2(iResolution.x / iResolution.y, 1.0) * 2.0;
+            float t = iTime * 0.25;
+
+            vec2 mouse = (iMouse / iResolution - 0.5) * vec2(iResolution.x / iResolution.y, 1.0) * 2.0;
+            float mDist = length(p - mouse);
+            float mGlow = smoothstep(0.9, 0.0, mDist) * 0.35;
+
+            float n1 = fbm(p * 2.0 + vec2(t * 0.8, -t * 0.5));
+            float n2 = fbm(p * 3.4 + vec2(-t * 0.4, t * 0.7));
+            float bands = sin((p.x + n1 * 0.85) * 9.5 + t * 6.0) * 0.5 + 0.5;
+            bands += sin((p.x + n2 * 0.6) * 16.0 - t * 3.4) * 0.25 + 0.25;
+
+            vec3 c1 = vec3(1.0, 0.16, 0.62);
+            vec3 c2 = vec3(0.65, 0.18, 1.0);
+            vec3 c3 = vec3(0.10, 0.52, 1.0);
+            vec3 base = mix(c1, c2, smoothstep(0.1, 0.9, uv.y));
+            base = mix(base, c3, smoothstep(0.25, 1.0, uv.x));
+
+            float flow = smoothstep(0.15, 1.0, bands + n1 * 0.65);
+            vec3 col = base * flow;
+
+            float core = smoothstep(0.9, 0.0, length(p * vec2(1.0, 1.25)));
+            col += vec3(0.35, 0.25, 0.75) * core * 0.35;
+            col += base * mGlow;
+
+            float vignette = smoothstep(1.35, 0.2, length(p));
+            col *= vignette;
+
+            gl_FragColor = vec4(col, 0.95);
+        }
+    `;
+
+    const uniforms = {
+        iTime: { value: 0 },
+        iResolution: { value: new THREE.Vector2() },
+        iMouse: { value: new THREE.Vector2(0, 0) }
+    };
+
+    const material = new THREE.ShaderMaterial({ vertexShader, fragmentShader, uniforms, transparent: true });
+    const mesh = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), material);
+    scene.add(mesh);
+
+    const resize = () => {
+        const rect = heroSection.getBoundingClientRect();
+        const w = Math.max(1, rect.width);
+        const h = Math.max(1, rect.height);
+        renderer.setSize(w, h, false);
+        uniforms.iResolution.value.set(w, h);
+    };
+
+    const onMouseMove = (e) => {
+        const rect = heroSection.getBoundingClientRect();
+        uniforms.iMouse.value.set(e.clientX - rect.left, rect.height - (e.clientY - rect.top));
+    };
+
+    window.addEventListener('resize', resize);
+    heroSection.addEventListener('mousemove', onMouseMove);
+    resize();
+
+    const animate = () => {
+        uniforms.iTime.value = clock.getElapsedTime();
+        renderer.render(scene, camera);
+        requestAnimationFrame(animate);
+    };
+
+    animate();
+});
+
+/* ═══════════════════════════════════════════════════════════════════════════
    THREE.JS NEBULA BACKGROUND FOR FLOW SECTION - HIGH TECH SHADER
    ═══════════════════════════════════════════════════════════════════════════ */
 
