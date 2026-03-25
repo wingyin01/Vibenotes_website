@@ -1806,8 +1806,33 @@ document.addEventListener('DOMContentLoaded', () => {
         if (scrollProgress < 0.18) {
             hideAllScenes();
             const heroProgress = scrollProgress / 0.18;
-            showScene(sceneHero, 1 - heroProgress); // Fade out completely
-            sceneHero.style.transform = `scale(${1 - heroProgress * 0.1})`;
+            const heroEase = 1 - Math.pow(1 - heroProgress, 3);
+            const burst = Math.sin(heroProgress * Math.PI);
+
+            showScene(sceneHero, 1 - heroProgress * 0.92);
+            sceneHero.style.transform = `scale(${1.08 - heroEase * 0.2}) translateY(${heroEase * -18}px)`;
+
+            const heroTitle = sceneHero.querySelector('.flow-main-title');
+            const heroSubtitle = sceneHero.querySelector('.flow-main-subtitle');
+            const heroBadge = sceneHero.querySelector('.hero-badge');
+
+            if (heroTitle) {
+                heroTitle.style.transform = `translateY(${heroEase * 28}px) scale(${1.15 - heroEase * 0.28})`;
+                heroTitle.style.letterSpacing = `${-0.03 + burst * 0.018}em`;
+                heroTitle.style.textShadow = `0 0 ${46 + burst * 42}px rgba(99, 102, 241, ${0.42 + burst * 0.42})`;
+                heroTitle.style.filter = `brightness(${1 + burst * 0.22}) saturate(${1 + burst * 0.24})`;
+            }
+
+            if (heroSubtitle) {
+                heroSubtitle.style.transform = `translateY(${heroEase * 36}px) scale(${1.04 - heroEase * 0.08})`;
+                heroSubtitle.style.opacity = `${1 - heroEase * 0.55}`;
+            }
+
+            if (heroBadge) {
+                heroBadge.style.transform = `translateY(${heroEase * 16}px) scale(${1.06 - heroEase * 0.08})`;
+                heroBadge.style.boxShadow = `0 0 ${18 + burst * 30}px rgba(168, 85, 247, ${0.24 + burst * 0.34})`;
+            }
+
             if (debugScene) debugScene.textContent = 'Hero';
         }
         // Transition gap (18% - 20%) - nothing visible
@@ -2022,4 +2047,101 @@ document.addEventListener('DOMContentLoaded', () => {
     updateZoomParallax();
     
     console.log('✅ Zoom Parallax effect initialized');
+});
+
+// ═══════════════════════════════════════════════════════════════════════════
+// 4-LEVEL LEARNING LOOP - Circular Interaction
+// ═══════════════════════════════════════════════════════════════════════════
+document.addEventListener('DOMContentLoaded', () => {
+    const loopDiagram = document.getElementById('llDiagram');
+    if (!loopDiagram) return;
+
+    const stages = Array.from(loopDiagram.querySelectorAll('.ll-stage'));
+    const mobileCardsWrap = document.querySelector('.ll-mobile-cards');
+    const mobileCards = mobileCardsWrap ? Array.from(mobileCardsWrap.querySelectorAll('.ll-mc')) : [];
+    const mobileDots = Array.from(document.querySelectorAll('.ll-mobile-dots span'));
+
+    let activeIndex = 0;
+    let isPaused = false;
+    let timer = null;
+
+    const setActive = (index) => {
+        activeIndex = index % stages.length;
+
+        stages.forEach((stage, i) => {
+            stage.classList.toggle('active', i === activeIndex);
+        });
+
+        mobileCards.forEach((card, i) => {
+            card.classList.toggle('active', i === activeIndex);
+        });
+
+        mobileDots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === activeIndex);
+        });
+    };
+
+    const startAutoRotate = () => {
+        if (timer) clearInterval(timer);
+        timer = setInterval(() => {
+            if (isPaused) return;
+            setActive((activeIndex + 1) % stages.length);
+        }, 5200);
+    };
+
+    // Hover: pause/resume auto rotation
+    loopDiagram.addEventListener('mouseenter', () => {
+        isPaused = true;
+    });
+    loopDiagram.addEventListener('mouseleave', () => {
+        isPaused = false;
+    });
+
+    // Click stage: expand details, also set active
+    stages.forEach((stage, index) => {
+        stage.addEventListener('click', () => {
+            const isExpanded = stage.classList.contains('expanded');
+            stages.forEach((s) => {
+                s.classList.remove('expanded');
+                const panel = s.querySelector('.ll-detail-panel');
+                if (panel) panel.style.display = 'none';
+            });
+            if (!isExpanded) {
+                stage.classList.add('expanded');
+                const panel = stage.querySelector('.ll-detail-panel');
+                if (panel) panel.style.display = 'block';
+            }
+            setActive(index);
+        });
+    });
+
+    // Mobile: swipe cards + sticky mini progress indicator
+    if (mobileCardsWrap && mobileCards.length > 0) {
+        mobileCardsWrap.addEventListener('scroll', () => {
+            const wrapCenter = mobileCardsWrap.scrollLeft + mobileCardsWrap.clientWidth / 2;
+            let nearestIndex = 0;
+            let minDistance = Infinity;
+
+            mobileCards.forEach((card, i) => {
+                const center = card.offsetLeft + card.clientWidth / 2;
+                const distance = Math.abs(center - wrapCenter);
+                if (distance < minDistance) {
+                    minDistance = distance;
+                    nearestIndex = i;
+                }
+            });
+
+            setActive(nearestIndex);
+        }, { passive: true });
+
+        mobileCards.forEach((card, i) => {
+            card.addEventListener('click', () => {
+                card.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                setActive(i);
+            });
+        });
+    }
+
+    setActive(0);
+    startAutoRotate();
 });

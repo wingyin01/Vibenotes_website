@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=32">
+    <link rel="stylesheet" href="style.css?v=33">
 </head>
 
 <body>
@@ -32,13 +32,14 @@
             </a>
             <div class="nav-links" id="nav-links">
                 <a href="#introduction">Introduction</a>
-                <a href="#function-section">Function</a>
-                <a href="#flow">Flow</a>
+                <a href="#demo-video">Walkthrough</a>
+                <a href="#function-section">Functions</a>
+                <a href="#flow">Learning Loop</a>
                 <a href="#timeline">Timeline</a>
                 <a href="#pricing">Pricing</a>
             </div>
             <div class="nav-actions">
-                <a href="#" class="btn btn-secondary nav-cta">Get Early Access</a>
+                <a href="#pricing" class="btn btn-secondary nav-cta">Join Waitlist</a>
                 <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
                     <span class="bar"></span>
                     <span class="bar"></span>
@@ -94,7 +95,7 @@
     <div class="section-divider"></div>
 
     <!-- Demo Video Section -->
-    <section class="demo-video-section section-dark section-glow">
+    <section id="demo-video" class="demo-video-section section-dark section-glow">
         <div class="container">
             <div class="text-center" style="margin-bottom: 2rem;">
                 <div class="hero-badge shimmer glow-border" style="margin: 0 auto 1rem;">Product Walkthrough</div>
@@ -102,13 +103,12 @@
             </div>
 
             <div class="demo-video-frame">
-                <video controls preload="metadata" class="demo-video-player" playsinline poster="AI_image.jpeg">
+                <video controls preload="metadata" class="demo-video-player" playsinline poster="Video_cover.png">
                     <source src="Demo video.m4v" type="video/mp4">
                     <source src="Demo video.m4v" type="video/x-m4v">
                     <source src="Demo video.m4v" type="video/quicktime">
                     Your browser does not support this video format.
                 </video>
-                <p class="demo-video-fallback">If the video is still blank, <a href="Demo video.m4v" target="_blank" rel="noopener">open/download the video directly</a>.</p>
             </div>
         </div>
     </section>
@@ -658,105 +658,172 @@
                 </div>
             </div>
 
-            <!-- Scene 4: Four Function Blocks (Square Grid) -->
+            <!-- Scene 4: 4-Level Learning Loop (Premium Circular) -->
             <div class="flow-scene scene-reorganize">
-                <div class="container">
-                    <h3 class="scene-title">4-Level Learning Loop</h3>
-                    
-                    <!-- 2x2 Compact Grid of Learning Levels -->
-                    <div class="function-blocks-grid">
-                        
-                        <!-- Level 1: Foundation Layer -->
-                        <div class="function-block" data-block="1">
-                            <div class="block-number">01</div>
-                            <h4 class="block-title">Foundation</h4>
-                            <div class="block-features">
-                                <div class="block-feature-item">
-                                    <span class="feature-icon">🗂️</span>
-                                    <div class="feature-content">
-                                        <div class="feature-name">Smart Indexing</div>
-                                        <div class="feature-desc">Organize learning inputs</div>
-                                    </div>
-                                </div>
-                                <div class="block-feature-item">
-                                    <span class="feature-icon">📝</span>
-                                    <div class="feature-content">
-                                        <div class="feature-name">AI Summaries</div>
-                                        <div class="feature-desc">Build first understanding</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                <div class="ll-wrap">
 
-                        <!-- Level 2: Knowledge Expansion Layer -->
-                        <div class="function-block" data-block="2">
-                            <div class="block-number">02</div>
-                            <h4 class="block-title">Expansion</h4>
-                            <div class="block-features">
-                                <div class="block-feature-item">
-                                    <span class="feature-icon">👨‍🏫</span>
-                                    <div class="feature-content">
-                                        <div class="feature-name">AI Lecturer</div>
-                                        <div class="feature-desc">Broaden concepts with guidance</div>
-                                    </div>
-                                </div>
-                                <div class="block-feature-item">
-                                    <span class="feature-icon">🎙️</span>
-                                    <div class="feature-content">
-                                        <div class="feature-name">Podcast Mode</div>
-                                        <div class="feature-desc">Learn while moving through topics</div>
-                                    </div>
-                                </div>
-                                <div class="block-feature-item">
-                                    <span class="feature-icon">💡</span>
-                                    <div class="feature-content">
-                                        <div class="feature-name">Smart Hints</div>
-                                        <div class="feature-desc">Step-by-step when it gets hard</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Level 3: Practice Reinforcement Layer -->
-                        <div class="function-block" data-block="3">
-                            <div class="block-number">03</div>
-                            <h4 class="block-title">Practice</h4>
-                            <div class="block-features">
-                                <div class="block-feature-item">
-                                    <span class="feature-icon">✍️</span>
-                                    <div class="feature-content">
-                                        <div class="feature-name">Quiz Generator</div>
-                                        <div class="feature-desc">Reinforce with repetition</div>
-                                    </div>
-                                </div>
-                                <div class="block-feature-item">
-                                    <span class="feature-icon">📅</span>
-                                    <div class="feature-content">
-                                        <div class="feature-name">Smart Schedule</div>
-                                        <div class="feature-desc">Keep a consistent rhythm</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Level 4: Consolidation & Loop Layer -->
-                        <div class="function-block" data-block="4">
-                            <div class="block-number">04</div>
-                            <h4 class="block-title">Consolidate &amp; Loop</h4>
-                            <div class="block-features">
-                                <div class="block-feature-item">
-                                    <span class="feature-icon">✅</span>
-                                    <div class="feature-content">
-                                        <div class="feature-name">Auto Review</div>
-                                        <div class="feature-desc">Review weak points, then restart Level 1</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="block-loop-note">↺ Repeat the loop</div>
-                        </div>
-
+                    <div class="ll-header">
+                        <h3 class="ll-title">4-Level Learning Loop</h3>
+                        <p class="ll-subtitle">From first understanding to long-term mastery</p>
                     </div>
-                </div>
+
+                    <div class="ll-diagram" id="llDiagram">
+                        <div class="ll-ring ring-a" aria-hidden="true"></div>
+                        <div class="ll-ring ring-b" aria-hidden="true"></div>
+                        <div class="ll-ring ring-c" aria-hidden="true"></div>
+                        <div class="ll-orbit-lane l1" aria-hidden="true"></div>
+                        <div class="ll-orbit-lane l2" aria-hidden="true"></div>
+
+                        <div class="ll-wireframe" aria-hidden="true">
+                            <span class="ll-lat lat-1"></span>
+                            <span class="ll-lat lat-2"></span>
+                            <span class="ll-lat lat-3"></span>
+                            <span class="ll-lat lat-4"></span>
+                            <span class="ll-lat lat-5"></span>
+
+                            <span class="ll-lon lon-1"></span>
+                            <span class="ll-lon lon-2"></span>
+                            <span class="ll-lon lon-3"></span>
+                            <span class="ll-lon lon-4"></span>
+                            <span class="ll-lon lon-5"></span>
+                            <span class="ll-lon lon-6"></span>
+                        </div>
+
+                        <div class="ll-particles" aria-hidden="true">
+                            <span class="ll-p p1"></span><span class="ll-p p2"></span><span class="ll-p p3"></span>
+                            <span class="ll-p p4"></span><span class="ll-p p5"></span><span class="ll-p p6"></span>
+                        </div>
+
+                        <svg class="ll-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <filter id="llGlow">
+                                    <feGaussianBlur stdDeviation="3.5" result="cb"/>
+                                    <feMerge><feMergeNode in="cb"/><feMergeNode in="SourceGraphic"/></feMerge>
+                                </filter>
+                                <linearGradient id="llGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#6366F1"/>
+                                    <stop offset="50%" stop-color="#A855F7"/>
+                                    <stop offset="100%" stop-color="#EC4899"/>
+                                </linearGradient>
+                            </defs>
+                            <!-- Base ring -->
+                            <circle cx="200" cy="200" r="150" fill="none" stroke="rgba(99,102,241,0.18)" stroke-width="1.5"/>
+                            <!-- Animated arc -->
+                            <circle class="ll-arc" cx="200" cy="200" r="150" fill="none" stroke="url(#llGrad)" stroke-width="2.5" stroke-dasharray="942" stroke-dashoffset="942" stroke-linecap="round" filter="url(#llGlow)"/>
+                            <!-- Arrows between nodes (clockwise) -->
+                            <g class="ll-arrows" opacity="0.6">
+                                <!-- Top → Right -->
+                                <path d="M 270 90 Q 330 140 330 200" fill="none" stroke="#A855F7" stroke-width="1.2" marker-end="url(#arr)"/>
+                                <!-- Right → Bottom -->
+                                <path d="M 330 260 Q 300 330 230 340" fill="none" stroke="#A855F7" stroke-width="1.2" marker-end="url(#arr)"/>
+                                <!-- Bottom → Left -->
+                                <path d="M 165 348 Q 100 320 75 255" fill="none" stroke="#EC4899" stroke-width="1.2" marker-end="url(#arr)"/>
+                                <!-- Left → Top (return) -->
+                                <path d="M 68 140 Q 90 68 162 55" fill="none" stroke="#EC4899" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arr)"/>
+                                <defs>
+                                    <marker id="arr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+                                        <path d="M0,0 L6,3 L0,6 Z" fill="#A855F7"/>
+                                    </marker>
+                                </defs>
+                            </g>
+                            <!-- Orbiting dot -->
+                            <circle class="ll-dot" r="6" fill="#EC4899" filter="url(#llGlow)">
+                                <animateMotion dur="24s" repeatCount="indefinite">
+                                    <mpath href="#llPath"/>
+                                </animateMotion>
+                            </circle>
+                            <path id="llPath" d="M 200 50 A 150 150 0 1 1 199.9 50" fill="none"/>
+                        </svg>
+
+                        <!-- Hub -->
+                        <div class="ll-hub">
+                            <div class="ll-hub-inner">
+                                <div class="ll-hub-icon">⚡</div>
+                                <div class="ll-hub-name">Vibenotes Learning<br>Engine</div>
+                            </div>
+                        </div>
+
+                        <!-- Stage cards -->
+                        <div class="ll-stage" data-stage="0" style="position:absolute;top:16%;left:50%;transform:translate(-50%,-50%);--sx:50%;--sy:16%">
+                            <div class="ll-stage-inner">
+                                <div class="ll-stage-num">01</div>
+                                <div class="ll-stage-title">Foundation</div>
+                                <div class="ll-stage-features">
+                                    <span>🗂️ Smart Indexing</span>
+                                    <span>📝 AI Summaries</span>
+                                </div>
+                            </div>
+                            <div class="ll-detail-panel" style="display:none;">
+                                <strong>Foundation</strong>
+                                <p>Automatically organise all your materials and build a clear first understanding with AI-generated summaries.</p>
+                                <div class="ll-outcome">Outcome: Clear mental map of the topic</div>
+                            </div>
+                        </div>
+
+                        <div class="ll-stage" data-stage="1" style="position:absolute;top:50%;left:84%;transform:translate(-50%,-50%);--sx:84%;--sy:50%">
+                            <div class="ll-stage-inner">
+                                <div class="ll-stage-num">02</div>
+                                <div class="ll-stage-title">Expansion</div>
+                                <div class="ll-stage-features">
+                                    <span>👨‍🏫 AI Lecturer</span>
+                                    <span>🎙️ Podcast Mode</span>
+                                    <span>💡 Smart Hints</span>
+                                </div>
+                            </div>
+                            <div class="ll-detail-panel" style="display:none;">
+                                <strong>Expansion</strong>
+                                <p>Deepen your knowledge through guided lectures, on-the-go podcasts, and contextual hints when things get tough.</p>
+                                <div class="ll-outcome">Outcome: Broader and deeper understanding</div>
+                            </div>
+                        </div>
+
+                        <div class="ll-stage" data-stage="2" style="position:absolute;top:84%;left:50%;transform:translate(-50%,-50%);--sx:50%;--sy:84%">
+                            <div class="ll-stage-inner">
+                                <div class="ll-stage-num">03</div>
+                                <div class="ll-stage-title">Practice</div>
+                                <div class="ll-stage-features">
+                                    <span>✍️ Quiz Generator</span>
+                                    <span>📅 Smart Schedule</span>
+                                </div>
+                            </div>
+                            <div class="ll-detail-panel" style="display:none;">
+                                <strong>Practice</strong>
+                                <p>Lock in knowledge with adaptive quizzes and a personalised schedule that keeps you practising consistently.</p>
+                                <div class="ll-outcome">Outcome: Knowledge converted to retention</div>
+                            </div>
+                        </div>
+
+                        <div class="ll-stage" data-stage="3" style="position:absolute;top:50%;left:16%;transform:translate(-50%,-50%);--sx:16%;--sy:50%">
+                            <div class="ll-stage-inner">
+                                <div class="ll-stage-num">04</div>
+                                <div class="ll-stage-title">Consolidate</div>
+                                <div class="ll-stage-features">
+                                    <span>✅ Auto Review</span>
+                                    <span>↺ Restart at Level 1</span>
+                                </div>
+                            </div>
+                            <div class="ll-detail-panel" style="display:none;">
+                                <strong>Consolidate &amp; Loop</strong>
+                                <p>Review performance, identify weak areas, then return to Foundation for the next cycle at a higher level.</p>
+                                <div class="ll-outcome">Outcome: Compounding mastery over time</div>
+                            </div>
+                        </div>
+
+
+                    </div><!-- /.ll-diagram -->
+
+                    <!-- Mobile swipe cards -->
+                    <div class="ll-mobile-cards">
+                        <div class="ll-mc active" data-mc="0"><span class="ll-mc-n">01</span><strong>Foundation</strong><small>Smart Indexing · AI Summaries</small></div>
+                        <div class="ll-mc" data-mc="1"><span class="ll-mc-n">02</span><strong>Expansion</strong><small>AI Lecturer · Podcast · Hints</small></div>
+                        <div class="ll-mc" data-mc="2"><span class="ll-mc-n">03</span><strong>Practice</strong><small>Quiz Generator · Smart Schedule</small></div>
+                        <div class="ll-mc" data-mc="3"><span class="ll-mc-n">04</span><strong>Consolidate</strong><small>Auto Review · Restart Loop</small></div>
+                    </div>
+                    <div class="ll-mobile-dots">
+                        <span class="active"></span><span></span><span></span><span></span>
+                    </div>
+
+                </div><!-- /.ll-wrap -->
             </div>
 
             <!-- Scene 5: Final Message -->
