@@ -9491,6 +9491,13 @@ svg defs {
     color: var(--text-secondary);
     font-weight: 400;
     margin-top: 2rem;
+    transition: transform 0.22s ease, opacity 0.22s ease;
+    will-change: transform, opacity;
+}
+
+.scene-hero .hero-badge {
+    transition: transform 0.22s ease, box-shadow 0.22s ease;
+    will-change: transform, box-shadow;
 }
 
 /* Scene Problem (Chaos) - Enhanced spacing */

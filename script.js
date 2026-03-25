@@ -1810,27 +1810,27 @@ document.addEventListener('DOMContentLoaded', () => {
             const burst = Math.sin(heroProgress * Math.PI);
 
             showScene(sceneHero, 1 - heroProgress * 0.92);
-            sceneHero.style.transform = `scale(${1.08 - heroEase * 0.2}) translateY(${heroEase * -18}px)`;
+            sceneHero.style.transform = `scale(${0.9 + heroEase * 0.16}) translateY(${24 - heroEase * 24}px)`;
 
             const heroTitle = sceneHero.querySelector('.flow-main-title');
             const heroSubtitle = sceneHero.querySelector('.flow-main-subtitle');
             const heroBadge = sceneHero.querySelector('.hero-badge');
 
             if (heroTitle) {
-                heroTitle.style.transform = `translateY(${heroEase * 28}px) scale(${1.15 - heroEase * 0.28})`;
-                heroTitle.style.letterSpacing = `${-0.03 + burst * 0.018}em`;
-                heroTitle.style.textShadow = `0 0 ${46 + burst * 42}px rgba(99, 102, 241, ${0.42 + burst * 0.42})`;
-                heroTitle.style.filter = `brightness(${1 + burst * 0.22}) saturate(${1 + burst * 0.24})`;
+                heroTitle.style.transform = `translateY(${24 - heroEase * 22}px) scale(${0.86 + heroEase * 0.31})`;
+                heroTitle.style.letterSpacing = `${-0.045 + burst * 0.018}em`;
+                heroTitle.style.textShadow = `0 0 ${24 + heroEase * 34 + burst * 24}px rgba(99, 102, 241, ${0.3 + heroEase * 0.25 + burst * 0.2})`;
+                heroTitle.style.filter = `brightness(${0.88 + heroEase * 0.22 + burst * 0.14}) saturate(${0.92 + heroEase * 0.2 + burst * 0.14})`;
             }
 
             if (heroSubtitle) {
-                heroSubtitle.style.transform = `translateY(${heroEase * 36}px) scale(${1.04 - heroEase * 0.08})`;
-                heroSubtitle.style.opacity = `${1 - heroEase * 0.55}`;
+                heroSubtitle.style.transform = `translateY(${20 - heroEase * 16}px) scale(${0.95 + heroEase * 0.08})`;
+                heroSubtitle.style.opacity = `${0.68 + (1 - heroEase) * 0.32}`;
             }
 
             if (heroBadge) {
-                heroBadge.style.transform = `translateY(${heroEase * 16}px) scale(${1.06 - heroEase * 0.08})`;
-                heroBadge.style.boxShadow = `0 0 ${18 + burst * 30}px rgba(168, 85, 247, ${0.24 + burst * 0.34})`;
+                heroBadge.style.transform = `translateY(${14 - heroEase * 12}px) scale(${0.94 + heroEase * 0.12})`;
+                heroBadge.style.boxShadow = `0 0 ${12 + heroEase * 16 + burst * 22}px rgba(168, 85, 247, ${0.16 + heroEase * 0.18 + burst * 0.22})`;
             }
 
             if (debugScene) debugScene.textContent = 'Hero';
