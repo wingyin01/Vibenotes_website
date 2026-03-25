@@ -49,6 +49,16 @@ class RevealWaveImage {
         this.animate();
     }
 
+    getContainerSize() {
+        // Use getBoundingClientRect to get actual rendered size,
+        // which works even with height:0 + padding-bottom aspect-ratio containers
+        const rect = this.container.getBoundingClientRect();
+        return {
+            width: rect.width || this.container.offsetWidth,
+            height: rect.height || this.container.offsetHeight
+        };
+    }
+
     setupThree() {
         console.log('Setting up Three.js renderer...');
         
@@ -57,7 +67,8 @@ class RevealWaveImage {
         this.scene.background = null; // Transparent background
 
         // Camera (create before renderer.setSize)
-        this.camera = new THREE.PerspectiveCamera(75, this.container.clientWidth / this.container.clientHeight, 0.1, 1000);
+        const size = this.getContainerSize();
+        this.camera = new THREE.PerspectiveCamera(75, size.width / size.height, 0.1, 1000);
         this.camera.position.z = 1;
 
         console.log('Camera position:', this.camera.position);
@@ -240,7 +251,8 @@ class RevealWaveImage {
         this.mesh = new THREE.Mesh(geometry, material);
 
         // Scale to cover (like object-fit: cover) - no black bars
-        const containerAspect = this.container.clientWidth / this.container.clientHeight;
+        const { width: cw, height: ch } = this.getContainerSize();
+        const containerAspect = cw / ch;
         
         if (this.aspectRatio > containerAspect) {
             // Image is wider than container - fit height, scale width
@@ -283,31 +295,9 @@ class RevealWaveImage {
     }
 
     updateSize() {
-        const width = this.container.clientWidth;
-        const height = this.container.clientHeight;
+        const { width, height } = this.getContainerSize();
         
-        console.log('=== UPDATE SIZE DEBUG ===');
-        console.log('Container element:', this.container);
-        console.log('Container clientWidth:', width);
-        console.log('Container clientHeight:', height);
-        console.log('Container offsetWidth:', this.container.offsetWidth);
-        console.log('Container offsetHeight:', this.container.offsetHeight);
-        console.log('Container getBoundingClientRect:', this.container.getBoundingClientRect());
-        console.log('Window innerWidth:', window.innerWidth);
-        console.log('Window innerHeight:', window.innerHeight);
-        
-        // Check parent constraints
-        let parent = this.container.parentElement;
-        let level = 0;
-        while (parent && level < 5) {
-            console.log(`Parent ${level}:`, parent.tagName, parent.className);
-            console.log(`  - clientWidth: ${parent.clientWidth}, offsetWidth: ${parent.offsetWidth}`);
-            console.log(`  - computed width:`, window.getComputedStyle(parent).width);
-            console.log(`  - computed max-width:`, window.getComputedStyle(parent).maxWidth);
-            parent = parent.parentElement;
-            level++;
-        }
-        console.log('========================');
+        if (width === 0 || height === 0) return;
         
         if (this.renderer) {
             this.renderer.setSize(width, height);

@@ -32,7 +32,7 @@
             </a>
             <div class="nav-links" id="nav-links">
                 <a href="#introduction">Introduction</a>
-                <a href="#function">Function</a>
+                <a href="#function-section">Function</a>
                 <a href="#flow">Flow</a>
                 <a href="#timeline">Timeline</a>
                 <a href="#pricing">Pricing</a>
@@ -76,7 +76,7 @@
                 It doesn't just talk; it executes tasks to help you succeed.
             </p>
             <div class="fade-in-up" style="transition-delay: 0.3s; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <a href="#function" class="btn btn-primary btn-elastic glow-pulse magnetic">Explore Functions</a>
+                <a href="#function-section" class="btn btn-primary btn-elastic glow-pulse magnetic">Explore Functions</a>
                 <a href="#pricing" class="btn btn-secondary btn-elastic magnetic">View Pricing</a>
             </div>
         </div>
@@ -93,31 +93,31 @@
     <!-- Animated Section Divider -->
     <div class="section-divider"></div>
 
-    <!-- Zoom Parallax Section -->
-    <section class="zoom-parallax-section">
-        <div class="zoom-parallax-container">
-            <div class="zoom-parallax-sticky">
-                <div class="parallax-image-wrapper parallax-img-1">
-                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&h=800&fit=crop" alt="Students collaborating">
-                </div>
-                <div class="parallax-image-wrapper parallax-img-2">
-                    <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=800&h=600&fit=crop" alt="Study materials">
-                </div>
-                <div class="parallax-image-wrapper parallax-img-3">
-                    <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&h=600&fit=crop" alt="Learning online">
-                </div>
-                <div class="parallax-image-wrapper parallax-img-4">
-                    <img src="https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?w=800&h=600&fit=crop" alt="Books and notes">
-                </div>
-                <div class="parallax-image-wrapper parallax-img-5">
-                    <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&h=600&fit=crop" alt="Digital learning">
-                </div>
+    <!-- Demo Video Section -->
+    <section class="demo-video-section section-dark section-glow">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 2rem;">
+                <div class="hero-badge shimmer glow-border" style="margin: 0 auto 1rem;">Product Walkthrough</div>
+                <h2 class="reveal-blur">See Vibenotes in <span class="text-gradient">Action</span></h2>
+            </div>
+
+            <div class="demo-video-frame">
+                <video controls preload="metadata" class="demo-video-player" playsinline poster="AI_image.jpeg">
+                    <source src="Demo video.m4v" type="video/mp4">
+                    <source src="Demo video.m4v" type="video/x-m4v">
+                    <source src="Demo video.m4v" type="video/quicktime">
+                    Your browser does not support this video format.
+                </video>
+                <p class="demo-video-fallback">If the video is still blank, <a href="Demo video.m4v" target="_blank" rel="noopener">open/download the video directly</a>.</p>
             </div>
         </div>
     </section>
 
+    <!-- Animated Section Divider -->
+    <div class="section-divider"></div>
+
     <!-- Function Section (Bento Grid) -->
-    <section id="function" class="bento-section section-dark section-glow section-morph color-shift">
+    <section id="function-section" class="bento-section section-dark section-glow section-morph color-shift">
         <div class="container">
             <div class="text-center blur-reveal-dramatic" style="margin-bottom: 4rem;">
                 <div class="hero-badge shimmer glow-border" style="margin: 0 auto 1rem;">Core Functions</div>
@@ -557,25 +557,6 @@
     <!-- Animated Section Divider -->
     <div class="section-divider"></div>
 
-    <!-- AI Image Section - Between Function and Flow -->
-    <section class="ai-image-section section-dark">
-        <div class="container">
-            <div style="text-align: center; margin-bottom: 3rem;">
-                <div class="hero-badge shimmer glow-border" style="margin: 0 auto 1rem;">AI-Powered Learning</div>
-                <h2 class="reveal-blur">Experience the <span class="text-gradient">Future</span></h2>
-                <p class="reveal-blur" style="transition-delay: 0.1s;">See how AI transforms your study materials into interactive learning experiences.</p>
-            </div>
-        </div>
-        
-        <!-- AI Image with Wave Effect - Outside container for full width -->
-        <div class="flow-hero-image-container">
-            <div id="reveal-wave-image" class="reveal-wave-canvas"></div>
-        </div>
-    </section>
-
-    <!-- Animated Section Divider -->
-    <div class="section-divider"></div>
-
     <!-- Apple-Style Scroll-Driven Flow Section -->
     <section id="flow" class="apple-scroll-flow">
         
@@ -818,34 +799,78 @@
             </div>
 
             <div class="roadmap-steps">
-                <div class="step fade-in-up">
-                    <div class="step-marker done">✓</div>
+
+                <div class="step fade-in-up" style="transition-delay: 0.0s;">
+                    <div class="step-marker">1</div>
                     <div class="step-content">
-                        <h3>Foundation Built</h3>
-                        <p>PDF drawing, typing, smart classification, and hint systems are nearly done.</p>
+                        <div class="step-month-label">Month 1</div>
+                        <h3>System Optimization &amp; Workflow Synergy</h3>
+                        <ul class="step-bullets">
+                            <li>Conduct rigorous internal testing to ensure the &ldquo;1+1&gt;2&rdquo; compounding synergy is functioning seamlessly (e.g., verifying that the auto-grading engine accurately feeds data into the podcast/quiz generation).</li>
+                            <li>Refine LLM prompts for maximum accuracy and reduce latency for iPadOS Apple Pencil interactions.</li>
+                        </ul>
                     </div>
                 </div>
+
                 <div class="step fade-in-up" style="transition-delay: 0.1s;">
-                    <div class="step-marker active">⚡️</div>
+                    <div class="step-marker">2</div>
                     <div class="step-content">
-                        <h3>In Progress</h3>
-                        <p>Quiz generation and podcast systems are in active development.</p>
+                        <div class="step-month-label">Month 2</div>
+                        <h3>Advanced Feature Finalization</h3>
+                        <ul class="step-bullets">
+                            <li>Finalize the development of the high-complexity features: the Format-Cloning Mock Paper generation and the predictive analytics study planner.</li>
+                        </ul>
                     </div>
                 </div>
+
                 <div class="step fade-in-up" style="transition-delay: 0.2s;">
-                    <div class="step-marker">🚀</div>
+                    <div class="step-marker">3</div>
                     <div class="step-content">
-                        <h3>Next Up</h3>
-                        <p>Lecture Mode and Adaptive Scheduler entering the next phase.</p>
+                        <div class="step-month-label">Month 3</div>
+                        <h3>Closed Alpha Testing &amp; Focus Groups</h3>
+                        <ul class="step-bullets">
+                            <li>Deploy the working build to a small, controlled group of Alpha testers (15&ndash;20 students).</li>
+                            <li>Monitor the accuracy of the &ldquo;Personal Study Code&rdquo; mapping and gather qualitative feedback on the proactive AI interventions.</li>
+                        </ul>
                     </div>
                 </div>
+
                 <div class="step fade-in-up" style="transition-delay: 0.3s;">
-                    <div class="step-marker">🏁</div>
+                    <div class="step-marker">4</div>
                     <div class="step-content">
-                        <h3>Full Release</h3>
-                        <p>Overall integration, project finalization, and full system demonstration by Spring.</p>
+                        <div class="step-month-label">Month 4</div>
+                        <h3>Comprehensive Beta Testing &amp; UX Polishing</h3>
+                        <ul class="step-bullets">
+                            <li>Expand to a Closed Beta with 100 target high school and undergraduate students.</li>
+                            <li>Stress-test the system under real-world, daily study loads. Finalize the UI/UX based on direct student feedback to ensure a zero-friction, native iPad experience.</li>
+                        </ul>
                     </div>
                 </div>
+
+                <div class="step fade-in-up" style="transition-delay: 0.4s;">
+                    <div class="step-marker">5</div>
+                    <div class="step-content">
+                        <div class="step-month-label">Month 5</div>
+                        <h3>App Store Submission &amp; Pre-Launch Marketing</h3>
+                        <ul class="step-bullets">
+                            <li>Submit Vibenotes to the Apple App Store and navigate the review process.</li>
+                            <li>Finalize the freemium subscription tiers and execute the initial marketing campaign, heavily leveraging student ambassadors and social media to demonstrate the &ldquo;autonomous workflow.&rdquo;</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="step fade-in-up" style="transition-delay: 0.5s;">
+                    <div class="step-marker active">6</div>
+                    <div class="step-content">
+                        <div class="step-month-label">Month 6</div>
+                        <h3>Official Public Launch &amp; Iterative Growth</h3>
+                        <ul class="step-bullets">
+                            <li>Execute the App Store launch and begin aggressive user acquisition.</li>
+                            <li>Monitor initial system stability, gather the first wave of post-launch user analytics, and begin scoping minor iterative updates based on live user data.</li>
+                        </ul>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -959,7 +984,7 @@
     </button>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="reveal-wave-image.js?v=2"></script>
+    <script src="reveal-wave-image.js?v=3"></script>
     <script src="script.js?v=23"></script>
     <script>
         // Initialize the reveal wave image effect
@@ -969,7 +994,7 @@
             console.log('Container found:', container);
             console.log('Container dimensions:', container.clientWidth, 'x', container.clientHeight);
             
-            if (container && container.clientWidth > 0 && container.clientHeight > 0) {
+            if (container) {
                 new RevealWaveImage('reveal-wave-image', 'AI_image.jpeg', {
                     waveSpeed: 0.2,
                     waveFrequency: 0.7,
@@ -980,21 +1005,7 @@
                     mouseRadius: 0.4
                 });
             } else {
-                console.error('Container not found or has zero dimensions!');
-                // Try again after a short delay
-                setTimeout(function() {
-                    console.log('Retrying initialization...');
-                    console.log('Container dimensions now:', container.clientWidth, 'x', container.clientHeight);
-                    new RevealWaveImage('reveal-wave-image', 'AI_image.jpeg', {
-                        waveSpeed: 0.2,
-                        waveFrequency: 0.7,
-                        waveAmplitude: 0.5,
-                        revealRadius: 0.5,
-                        revealSoftness: 1,
-                        pixelSize: 2,
-                        mouseRadius: 0.4
-                    });
-                }, 100);
+                console.error('Container #reveal-wave-image not found!');
             }
         });
     </script>

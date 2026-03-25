@@ -1634,22 +1634,13 @@ document.addEventListener('DOMContentLoaded', () => {
     
     console.log('✅ Flow section found with', scenes.length, 'scenes');
     
-    // Declare debug variables FIRST before any functions use them
+    // Flow debug toggle (keep false in normal development)
+    const FLOW_DEBUG = false;
     let debugProgress, debugScene, debugTop, debugDirection, debugHero, debugProblem, debugExplosion, debugReorganize, debugFinale;
     
     // Helper to update scene debug info
     function updateSceneDebug() {
-        if (!debugHero) {
-            debugProgress = document.getElementById('debug-progress');
-            debugScene = document.getElementById('debug-scene');
-            debugTop = document.getElementById('debug-top');
-            debugDirection = document.getElementById('debug-direction');
-            debugHero = document.getElementById('debug-hero');
-            debugProblem = document.getElementById('debug-problem');
-            debugExplosion = document.getElementById('debug-explosion');
-            debugReorganize = document.getElementById('debug-reorganize');
-            debugFinale = document.getElementById('debug-finale');
-        }
+        if (!FLOW_DEBUG) return;
         
         if (debugHero) debugHero.textContent = `Hero: opacity=${sceneHero.style.opacity}, visible=${sceneHero.style.visibility}, z=${sceneHero.style.zIndex}`;
         if (debugProblem) debugProblem.textContent = `Problem: opacity=${sceneProblem.style.opacity}, visible=${sceneProblem.style.visibility}, z=${sceneProblem.style.zIndex}`;
@@ -1687,40 +1678,52 @@ document.addEventListener('DOMContentLoaded', () => {
     // The scene will show when user scrolls to the flow section
     // hideAllScenes(); // MOVED BELOW - call after debug panel is created
     
-    // Add debug panel (remove after testing)
-    const debugPanel = document.createElement('div');
-    debugPanel.style.cssText = `
-        position: fixed;
-        top: 100px;
-        right: 20px;
-        background: rgba(0, 0, 0, 0.9);
-        color: #fff;
-        padding: 15px;
-        border-radius: 10px;
-        font-family: monospace;
-        font-size: 11px;
-        z-index: 10000;
-        border: 2px solid #6366F1;
-        min-width: 250px;
-        max-height: 400px;
-        overflow-y: auto;
-    `;
-    debugPanel.innerHTML = `
-        <div style="font-weight: bold; margin-bottom: 10px; color: #6366F1;">Flow Debug</div>
-        <div>Progress: <span id="debug-progress">0%</span></div>
-        <div>Active: <span id="debug-scene">None</span></div>
-        <div>Section Top: <span id="debug-top">0</span></div>
-        <div>Scroll Dir: <span id="debug-direction">-</span></div>
-        <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #6366F1;">
-            <div style="font-weight: bold; margin-bottom: 5px;">Scene States:</div>
-            <div id="debug-hero" style="font-size: 10px;">Hero: hidden</div>
-            <div id="debug-problem" style="font-size: 10px;">Problem: hidden</div>
-            <div id="debug-explosion" style="font-size: 10px;">Explosion: hidden</div>
-            <div id="debug-reorganize" style="font-size: 10px;">Reorganize: hidden</div>
-            <div id="debug-finale" style="font-size: 10px;">Finale: hidden</div>
-        </div>
-    `;
-    document.body.appendChild(debugPanel);
+    // Optional debug panel (disabled by default)
+    if (FLOW_DEBUG) {
+        const debugPanel = document.createElement('div');
+        debugPanel.style.cssText = `
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.9);
+            color: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            font-family: monospace;
+            font-size: 11px;
+            z-index: 10000;
+            border: 2px solid #6366F1;
+            min-width: 250px;
+            max-height: 400px;
+            overflow-y: auto;
+        `;
+        debugPanel.innerHTML = `
+            <div style="font-weight: bold; margin-bottom: 10px; color: #6366F1;">Flow Debug</div>
+            <div>Progress: <span id="debug-progress">0%</span></div>
+            <div>Active: <span id="debug-scene">None</span></div>
+            <div>Section Top: <span id="debug-top">0</span></div>
+            <div>Scroll Dir: <span id="debug-direction">-</span></div>
+            <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid #6366F1;">
+                <div style="font-weight: bold; margin-bottom: 5px;">Scene States:</div>
+                <div id="debug-hero" style="font-size: 10px;">Hero: hidden</div>
+                <div id="debug-problem" style="font-size: 10px;">Problem: hidden</div>
+                <div id="debug-explosion" style="font-size: 10px;">Explosion: hidden</div>
+                <div id="debug-reorganize" style="font-size: 10px;">Reorganize: hidden</div>
+                <div id="debug-finale" style="font-size: 10px;">Finale: hidden</div>
+            </div>
+        `;
+        document.body.appendChild(debugPanel);
+
+        debugProgress = document.getElementById('debug-progress');
+        debugScene = document.getElementById('debug-scene');
+        debugTop = document.getElementById('debug-top');
+        debugDirection = document.getElementById('debug-direction');
+        debugHero = document.getElementById('debug-hero');
+        debugProblem = document.getElementById('debug-problem');
+        debugExplosion = document.getElementById('debug-explosion');
+        debugReorganize = document.getElementById('debug-reorganize');
+        debugFinale = document.getElementById('debug-finale');
+    }
     
     
     // Get shader uniforms
@@ -1750,8 +1753,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const sectionHeight = sectionRect.height;
         const viewportHeight = window.innerHeight;
         
-        // If section is far below viewport, hide everything (not yet in view)
-        if (sectionTop > viewportHeight) {
+        // If section is not sufficiently in viewport yet, hide everything
+        if (sectionTop > viewportHeight * 0.25) {
             hideAllScenes();
             if (debugScene) debugScene.textContent = 'Not in view yet';
             return;
@@ -1775,13 +1778,16 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
         
-        // Debug logging (uncomment to test)
-        console.log('Scroll Progress:', (scrollProgress * 100).toFixed(1) + '%', 'Section Top:', sectionTop.toFixed(0));
+        // Debug logging
+        if (FLOW_DEBUG) {
+            console.log('Scroll Progress:', (scrollProgress * 100).toFixed(1) + '%', 'Section Top:', sectionTop.toFixed(0));
+        }
         
         // Update debug panel
         if (debugProgress) {
             debugProgress.textContent = (scrollProgress * 100).toFixed(1) + '%';
             debugTop.textContent = sectionTop.toFixed(0) + 'px';
+            if (debugDirection) debugDirection.textContent = scrollDirection;
         }
         
         // Update progress bar
@@ -1796,23 +1802,23 @@ document.addEventListener('DOMContentLoaded', () => {
             flowSection.classList.remove('scrolling');
         }
         
-        // Scene 1: Hero (0% - 10%)
-        if (scrollProgress < 0.10) {
+        // Scene 1: Hero (0% - 18%)
+        if (scrollProgress < 0.18) {
             hideAllScenes();
-            const heroProgress = scrollProgress / 0.10;
+            const heroProgress = scrollProgress / 0.18;
             showScene(sceneHero, 1 - heroProgress); // Fade out completely
             sceneHero.style.transform = `scale(${1 - heroProgress * 0.1})`;
             if (debugScene) debugScene.textContent = 'Hero';
         }
-        // Transition gap (10% - 12%) - nothing visible
-        else if (scrollProgress >= 0.10 && scrollProgress < 0.12) {
+        // Transition gap (18% - 20%) - nothing visible
+        else if (scrollProgress >= 0.18 && scrollProgress < 0.20) {
             hideAllScenes();
             if (debugScene) debugScene.textContent = 'Transition';
         }
-        // Scene 2: Problem/Chaos (12% - 30%)
-        else if (scrollProgress >= 0.12 && scrollProgress < 0.30) {
+        // Scene 2: Problem/Chaos (20% - 36%)
+        else if (scrollProgress >= 0.20 && scrollProgress < 0.36) {
             hideAllScenes();
-            const chaosProgress = (scrollProgress - 0.12) / 0.18;
+            const chaosProgress = (scrollProgress - 0.20) / 0.16;
             
             // Smooth fade in
             showScene(sceneProblem, Math.min(1, chaosProgress * 2));
@@ -1839,12 +1845,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 q.style.transform = `translate(-50%, -50%) scale(${bounce})`;
             });
         }
-        // Scene 3: Explosion (30% - 50%)
-        else if (scrollProgress >= 0.30 && scrollProgress < 0.50) {
+        // Scene 3: Explosion (36% - 56%)
+        else if (scrollProgress >= 0.36 && scrollProgress < 0.56) {
             hideAllScenes();
             showScene(sceneExplosion, 1);
             sceneExplosion.style.transform = 'scale(1)';
-            const explosionProgress = (scrollProgress - 0.30) / 0.20;
+            const explosionProgress = (scrollProgress - 0.36) / 0.20;
             if (debugScene) debugScene.textContent = 'Explosion';
             
             // Cards explode out immediately
@@ -1884,10 +1890,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 bgImage.style.opacity = explosionProgress * 0.3;
             }
         }
-        // Scene 4: Reorganize (50% - 80%)
-        else if (scrollProgress >= 0.50 && scrollProgress < 0.80) {
+        // Scene 4: Reorganize (56% - 84%)
+        else if (scrollProgress >= 0.56 && scrollProgress < 0.84) {
             hideAllScenes();
-            const reorganizeProgress = (scrollProgress - 0.50) / 0.30;
+            const reorganizeProgress = (scrollProgress - 0.56) / 0.28;
             
             // Smooth fade in
             showScene(sceneReorganize, Math.min(1, reorganizeProgress * 2));
@@ -1904,16 +1910,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 block.style.transform = `scale(${0.8 + (eased * 0.2)}) rotateY(${-15 + (eased * 15)}deg)`;
             });
         }
-        // Scene 5: Finale (80% - 95%)
-        else if (scrollProgress >= 0.80 && scrollProgress < 0.95) {
+        // Scene 5: Finale (84% - 97%)
+        else if (scrollProgress >= 0.84 && scrollProgress < 0.97) {
             hideAllScenes();
-            const finaleProgress = (scrollProgress - 0.80) / 0.15;
+            const finaleProgress = (scrollProgress - 0.84) / 0.13;
             
-            // Fade in from 80-85%, stay visible 85-95%
+            // Fade in from 84-89%, stay visible 89-97%
             let opacity;
-            if (scrollProgress < 0.85) {
-                // Fade in phase (80-85%)
-                const fadeInProgress = (scrollProgress - 0.80) / 0.05;
+            if (scrollProgress < 0.89) {
+                // Fade in phase (84-89%)
+                const fadeInProgress = (scrollProgress - 0.84) / 0.05;
                 opacity = fadeInProgress;
             } else {
                 // Stay visible (85-95%)
@@ -1924,8 +1930,8 @@ document.addEventListener('DOMContentLoaded', () => {
             sceneFinale.style.transform = `scale(${0.95 + (finaleProgress * 0.05)})`;
             if (debugScene) debugScene.textContent = 'Finale';
         }
-        // After 95% - hide everything (finale disappears)
-        else if (scrollProgress >= 0.95) {
+        // After 97% - hide everything (finale disappears)
+        else if (scrollProgress >= 0.97) {
             hideAllScenes();
             if (debugScene) debugScene.textContent = 'Complete - Finale Hidden';
         }

@@ -2616,6 +2616,7 @@ nav.scrolled {
 }
 
 .roadmap-steps {
+    --timeline-marker-size: 52px;
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -2627,11 +2628,11 @@ nav.scrolled {
 .roadmap-steps::before {
     content: '';
     position: absolute;
-    left: 24px;
+    left: calc(var(--timeline-marker-size) / 2);
     top: 0;
     bottom: 0;
     width: 1px;
-    background: var(--border-subtle);
+    background: linear-gradient(to bottom, rgba(99, 102, 241, 0.2), var(--border-subtle), rgba(168, 85, 247, 0.2));
 }
 
 .step {
@@ -2641,18 +2642,26 @@ nav.scrolled {
 }
 
 .step-marker {
-    width: 48px;
-    height: 48px;
+    width: var(--timeline-marker-size);
+    height: var(--timeline-marker-size);
+    min-width: var(--timeline-marker-size);
+    min-height: var(--timeline-marker-size);
+    flex: 0 0 var(--timeline-marker-size);
+    aspect-ratio: 1 / 1;
     border-radius: 50%;
-    background: var(--bg-surface);
-    border: 1px solid var(--border-subtle);
-    display: flex;
+    background: radial-gradient(circle at 30% 30%, rgba(99, 102, 241, 0.18), rgba(10, 10, 12, 0.95));
+    border: 1px solid rgba(99, 102, 241, 0.35);
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.2rem;
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--text-primary);
     position: relative;
     z-index: 2;
     transition: all 0.3s ease;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
 }
 
 .step-marker.active {
@@ -2670,6 +2679,84 @@ nav.scrolled {
 
 .step-content {
     padding-bottom: 2rem;
+}
+
+.step-month-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent-primary);
+    margin-bottom: 0.35rem;
+    opacity: 0.85;
+}
+
+.step-bullets {
+    list-style: none;
+    margin: 0.75rem 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.step-bullets li {
+    position: relative;
+    padding-left: 1.1rem;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.step-bullets li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: var(--accent-primary);
+    opacity: 0.6;
+}
+
+@media (max-width: 768px) {
+    .roadmap-steps {
+        --timeline-marker-size: 44px;
+    }
+
+    .step {
+        gap: 1rem;
+    }
+}
+
+/* Demo Video Section */
+.demo-video-frame {
+    max-width: 1080px;
+    margin: 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(99, 102, 241, 0.28);
+    background: rgba(5, 5, 10, 0.75);
+    box-shadow:
+        0 24px 70px rgba(0, 0, 0, 0.5),
+        0 0 45px rgba(99, 102, 241, 0.18);
+}
+
+.demo-video-player {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 360px;
+    background: #000;
+}
+
+.demo-video-fallback {
+    margin: 0;
+    padding: 0.8rem 1rem 1rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.demo-video-fallback a {
+    color: var(--accent-cyan);
+    text-decoration: underline;
 }
 
 /* Split Layout */
@@ -3312,16 +3399,17 @@ footer {
 
 /* Roadmap Markers */
 .step-marker.done {
-    background: var(--accent-primary);
-    color: var(--bg-body);
-    border: none;
+    background: radial-gradient(circle at 35% 25%, rgba(129, 140, 248, 0.95), rgba(99, 102, 241, 0.9));
+    color: #ffffff;
+    border: 1px solid rgba(129, 140, 248, 0.95);
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.14), 0 10px 28px rgba(99, 102, 241, 0.35);
 }
 
 .step-marker.active {
-    background: var(--bg-surface);
+    background: radial-gradient(circle at 30% 30%, rgba(168, 85, 247, 0.25), rgba(10, 10, 12, 0.95));
     border: 2px solid var(--accent-primary);
-    color: var(--accent-primary);
-    box-shadow: 0 0 15px rgba(141, 159, 255, 0.3);
+    color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.14), 0 0 18px rgba(141, 159, 255, 0.45);
 }
 
 /* Enhanced Glows */
@@ -9628,6 +9716,16 @@ svg defs {
 
 .scene-explosion.exploded .feature-card-mini[data-position="br"] {
     transform: translate(100%, 100%) scale(1);
+}
+
+/* Scroll anchor for direct jump into Core Functions phase */
+.flow-jump-anchor {
+    position: absolute;
+    top: 62%;
+    left: 0;
+    width: 1px;
+    height: 1px;
+    pointer-events: none;
 }
 
 /* Scene Reorganize - Enhanced spacing */
