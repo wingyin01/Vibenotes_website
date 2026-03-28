@@ -11970,3 +11970,913 @@ svg defs {
     }
 }
 
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   MOBILE RESPONSIVE — COMPREHENSIVE OVERRIDES
+   Applies only on phones (≤ 768px). Desktop layout is untouched.
+   ═══════════════════════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+
+    /* ── Global ── */
+    *, *::before, *::after {
+        box-sizing: border-box;
+    }
+
+    body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    .container {
+        padding: 0 1.25rem;
+        width: 100%;
+    }
+
+    /* ── Typography ── */
+    h1 {
+        font-size: clamp(2.2rem, 9vw, 3.2rem);
+        line-height: 1.15;
+        word-break: break-word;
+    }
+
+    h2 {
+        font-size: clamp(1.8rem, 7vw, 2.6rem);
+        line-height: 1.2;
+    }
+
+    h3 {
+        font-size: clamp(1.2rem, 5vw, 1.6rem);
+    }
+
+    p {
+        font-size: 0.97rem;
+        line-height: 1.65;
+    }
+
+    /* ── Navigation ── */
+    nav {
+        width: 100%;
+    }
+
+    .nav-content {
+        height: 58px;
+        padding: 0 1.25rem;
+    }
+
+    .logo-img {
+        height: 32px;
+    }
+
+    /* Mobile menu open: show CTA inside overlay */
+    .nav-links.mobile-open .nav-cta-mobile {
+        display: block;
+        margin-top: 2rem;
+        text-align: center;
+    }
+
+    /* ── Hero Section ── */
+    .hero {
+        min-height: 100svh;
+        padding-top: 5rem;
+        padding-bottom: 3rem;
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+    }
+
+    .hero-content {
+        padding: 0;
+    }
+
+    .hero-badge {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.9rem;
+    }
+
+    .hero .animated-gradient-text {
+        display: inline;
+        word-break: break-word;
+    }
+
+    .hero h1 {
+        font-size: clamp(1.9rem, 7.5vw, 2.6rem) !important;
+        line-height: 1.2;
+        white-space: nowrap;
+        text-align: center;
+        width: 100%;
+        display: block;
+    }
+
+    .hero p {
+        font-size: 0.82rem !important;
+        line-height: 1.65;
+        margin-bottom: 2rem;
+        max-width: 100% !important;
+        padding: 0 0.25rem;
+    }
+
+    /* Hide the desktop line-break on mobile */
+    .hidden-mobile {
+        display: none;
+    }
+
+    /* hero CTA buttons: stack on very narrow */
+    .hero .fade-in-up > a,
+    .hero .fade-in-up > div > a {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+
+    /* The flex wrapper around CTA buttons */
+    .hero [style*="display: flex"][style*="gap"] {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.75rem !important;
+        padding: 0 0.5rem;
+    }
+
+    .scroll-indicator {
+        display: none;
+    }
+
+    /* ── Demo Video ── */
+    .demo-video-section {
+        padding: 3rem 0;
+    }
+
+    .demo-video-frame {
+        border-radius: 12px;
+        margin: 0 0.5rem;
+    }
+
+    .demo-video-frame:hover {
+        transform: none; /* disable scale hover on touch */
+    }
+
+    .demo-video-player {
+        min-height: 200px;
+    }
+
+    /* ── Bento Grid ── */
+    .bento-section {
+        padding: 3rem 0;
+    }
+
+    .bento-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+        padding: 0 0.25rem;
+    }
+
+    /* Force ALL bento items to single column stacked layout */
+    .bento-item,
+    .bento-item.medium,
+    .bento-item.large {
+        grid-column: span 1 !important;
+        flex-direction: column !important;  /* stack visual on top, text below */
+        align-items: stretch !important;
+        min-height: unset;
+    }
+
+    /* Visual preview: compact height on mobile */
+    .bento-item .visual-preview,
+    .bento-item.medium .visual-preview,
+    .bento-item.large .visual-preview {
+        width: 100% !important;
+        height: 160px !important;
+        min-height: 160px !important;
+        order: 1 !important;
+        mask-image: linear-gradient(to bottom, black 70%, transparent 100%) !important;
+        -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%) !important;
+        border-left: none !important;
+        border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+
+    /* Scale down complex inner UIs to fit */
+    .foundation-ui,
+    .summary-app-interface,
+    .podcast-interface,
+    .lecture-container,
+    .scheduler-timeline,
+    .review-dashboard {
+        transform: scale(0.72);
+        transform-origin: center center;
+    }
+
+    /* Content area: full width below visual */
+    .bento-item .bento-content,
+    .bento-item.medium .bento-content,
+    .bento-item.large .bento-content {
+        width: 100% !important;
+        height: auto !important;
+        order: 2 !important;
+        padding: 1.25rem 1.25rem 1.5rem !important;
+        background: transparent !important;
+        justify-content: flex-start !important;
+    }
+
+    .bento-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .bento-item h3,
+    .bento-item.medium h3,
+    .bento-item.large h3 {
+        font-size: 1.1rem !important;
+        margin-bottom: 0.35rem;
+        line-height: 1.3;
+    }
+
+    .bento-item p,
+    .bento-item.medium p,
+    .bento-item.large p {
+        font-size: 0.88rem !important;
+        line-height: 1.55;
+        color: rgba(255,255,255,0.7);
+    }
+
+    /* ── Apple Scroll Flow Section ── */
+    .apple-scroll-flow {
+        /* Keep scroll-driven layout but reduce height */
+    }
+
+    .flow-scroll-container {
+        height: 450vh;
+    }
+
+    .flow-main-title {
+        font-size: clamp(2.4rem, 9vw, 3.5rem);
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .flow-main-subtitle {
+        font-size: 1rem;
+        margin-top: 1rem;
+    }
+
+    .scene-title {
+        font-size: clamp(1.8rem, 7vw, 2.8rem);
+        margin-bottom: 2rem;
+    }
+
+    .scene-description {
+        font-size: 0.95rem;
+    }
+
+    .chaos-visual {
+        height: 240px;
+        max-width: 100%;
+    }
+
+    .chaos-item {
+        font-size: 2rem;
+    }
+
+    .chaos-question {
+        font-size: 2rem;
+    }
+
+    /* ── Explosion scene: always show on mobile, prevent overflow ── */
+    .scene-explosion {
+        overflow: hidden;
+    }
+
+    .scene-explosion .container {
+        overflow: hidden;
+        padding: 0 1rem;
+    }
+
+    .scene-explosion .scene-title {
+        font-size: clamp(1.4rem, 6vw, 2rem) !important;
+        white-space: normal;
+        text-align: center;
+        padding: 0 0.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Explosion scene: hide complex JS-animated layout, show simple list */
+    .feature-cards-container {
+        display: none !important;
+    }
+
+    .explosion-bg-image {
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        position: relative !important;
+        width: 85% !important;
+        max-width: 300px;
+        margin: 0 auto 1.5rem !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    .explosion-bg-image img {
+        width: 100% !important;
+        height: auto !important;
+        border-radius: 16px;
+        object-fit: cover;
+    }
+
+    .explosion-center-logo {
+        display: none !important;
+    }
+
+    /* Show a clean static feature pill list instead */
+    .scene-explosion .container::after {
+        content: '🗂️ Smart Indexing  •  📝 AI Summaries  •  🎙️ Podcast  •  👨‍🏫 AI Lecturer  •  💡 Hints  •  ✍️ Quiz  •  📅 Schedule  •  ✅ Review';
+        display: block;
+        font-size: 0.82rem;
+        color: rgba(255,255,255,0.75);
+        text-align: center;
+        line-height: 2.2;
+        padding: 0.5rem 0.5rem 2rem;
+        letter-spacing: 0.02em;
+    }
+
+    .explosion-center-logo {
+        padding: 1rem 1.5rem;
+        transform: scale(0.8);
+    }
+
+    .logo-text {
+        font-size: 1rem;
+    }
+
+    /* Push feature mini-cards inward so they don't clip */
+    .feature-card-mini {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.7rem;
+    }
+
+    .card-name-mini {
+        font-size: 0.65rem;
+    }
+
+    /* ── Learning Loop ── */
+    .ll-diagram {
+        display: block !important;
+        width: min(560px, 94vw) !important;
+        height: min(560px, 94vw) !important;
+        zoom: 0.58;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        animation: loopRotate 34s linear infinite;
+    }
+
+    /* Stage cards: shrink the inner card only, keep animation untouched */
+    .ll-stage-inner {
+        padding: 0.45rem 0.6rem;
+        min-width: 120px;
+        max-width: 120px;
+    }
+
+    .ll-stage-num {
+        font-size: 0.55rem;
+    }
+
+    .ll-stage-title {
+        font-size: 0.7rem;
+    }
+
+    .ll-stage-features span {
+        font-size: 0.55rem;
+    }
+
+    .ll-hub {
+        width: 90px;
+        height: 90px;
+    }
+
+    .ll-hub-name {
+        font-size: 0.42rem;
+        line-height: 1.3;
+    }
+
+    .ll-hub-icon {
+        font-size: 1rem;
+    }
+
+    /* Hide swipe cards — diagram is visible */
+    .ll-mobile-cards {
+        display: none !important;
+    }
+
+    .ll-mobile-dots {
+        display: none !important;
+    }
+
+    .ll-header {
+        padding: 0 1rem;
+        text-align: center;
+        width: 100%;
+    }
+
+    .ll-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .ll-title {
+        font-size: clamp(1.5rem, 6vw, 2rem);
+    }
+
+    .finale-title {
+        font-size: clamp(1.6rem, 6vw, 2.4rem);
+    }
+
+    /* Shrink the Get Started Today button */
+    .scene-finale .btn-large,
+    .btn-large {
+        padding: 0.8rem 1.8rem !important;
+        font-size: 1rem !important;
+        border-radius: 30px !important;
+    }
+
+    .finale-subtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .flow-scroll-progress {
+        width: 140px;
+        bottom: 1rem;
+    }
+
+    /* ── Timeline / Roadmap ── */
+    .roadmap-steps {
+        gap: 1.5rem;
+    }
+
+    .step {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .step-marker {
+        width: 40px;
+        height: 40px;
+        min-width: 40px;
+        font-size: 0.9rem;
+        align-self: flex-start;
+    }
+
+    .step-content {
+        padding: 1.25rem;
+    }
+
+    .step-content h3 {
+        font-size: 1.05rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .step-month-label {
+        font-size: 0.75rem;
+    }
+
+    .step-bullets li {
+        font-size: 0.88rem;
+    }
+
+    /* ── Pricing ── */
+    .pricing-section-new {
+        padding: 4rem 0;
+    }
+
+    .pricing-cards-new {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 0 0.5rem;
+    }
+
+    .pcard {
+        margin-top: 1rem; /* space for floating pill */
+    }
+
+    .pcard-body {
+        padding: 1.5rem 1.25rem;
+    }
+
+    .pcard-name {
+        font-size: 1.3rem;
+    }
+
+    .pcard-price {
+        font-size: 2rem;
+    }
+
+    /* ── Footer ── */
+    footer {
+        padding: 3.5rem 0 5rem; /* extra bottom so scroll-top btn doesn't overlap */
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .footer-col {
+        padding-bottom: 1rem;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .footer-col:last-child {
+        border-bottom: none;
+    }
+
+    .footer-col:first-child {
+        margin-bottom: 0;
+    }
+
+    .footer-col h4 {
+        font-size: 0.8rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.45);
+        margin-bottom: 0.75rem;
+    }
+
+    .footer-col ul li {
+        margin-bottom: 0.6rem;
+    }
+
+    .footer-col ul li a {
+        font-size: 0.95rem;
+    }
+
+    .newsletter-form {
+        flex-direction: row;
+        gap: 0.5rem;
+    }
+
+    .newsletter-input {
+        width: 100%;
+        font-size: 0.95rem;
+        flex: 1;
+    }
+
+    .newsletter-form .btn {
+        flex-shrink: 0;
+        padding: 0.8rem 1rem;
+    }
+
+    /* Move scroll-to-top away from footer CTA */
+    .scroll-top-btn {
+        bottom: 1.5rem;
+        right: 1rem;
+        width: 40px;
+        height: 40px;
+    }
+
+    /* ── Disable expensive hover animations on touch ── */
+    .hover-lift:hover {
+        transform: none;
+    }
+
+    .float-card {
+        animation: none;
+    }
+
+    .magnetic:hover {
+        transform: none;
+    }
+
+    /* ── Floating orbs — reduce on mobile ── */
+    .orb-1 { width: 280px; height: 280px; }
+    .orb-2 { width: 180px; height: 180px; }
+    .orb-3 { width: 130px; height: 130px; }
+    .orb-4 { display: none; }
+
+    /* ── Typography spacing polish ── */
+    .text-center {
+        padding: 0 0.5rem;
+    }
+
+    .text-center h2,
+    .text-center p {
+        text-align: center;
+    }
+
+    /* Increase body text contrast slightly */
+    p, li {
+        color: rgba(255,255,255,0.72);
+    }
+
+    /* Consistent safe-margin spacing for all sections */
+    section > .container {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+    }
+
+    /* ── Section badge ── */
+    .hero-badge {
+        font-size: 0.72rem;
+        padding: 0.35rem 0.85rem;
+    }
+
+    /* ── Hero CTA button group ── */
+    .hero-cta-group {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        gap: 0.6rem !important;
+        padding: 0 0.25rem;
+    }
+
+    .hero-cta-group .btn {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        padding: 0.65rem 1.2rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* Extra small phones */
+@media (max-width: 390px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    .hero {
+        padding-top: 4.5rem;
+    }
+
+    .bento-grid {
+        gap: 1rem;
+    }
+
+    .pcard-body {
+        padding: 1.25rem 1rem;
+    }
+
+    .pcard-features li {
+        font-size: 0.82rem;
+    }
+
+    .finale-title {
+        font-size: 1.8rem;
+    }
+
+    .flow-main-title {
+        font-size: 2rem;
+    }
+}
+
+/* ===== Vibe Coin Info Button & Modal ===== */
+
+.coin-info-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: rgba(160, 160, 160, 0.15);
+    border: 1px solid rgba(160, 160, 160, 0.45);
+    color: rgba(180, 180, 180, 0.75);
+    font-size: 0.58rem;
+    font-weight: 700;
+    font-style: italic;
+    font-family: Georgia, serif;
+    line-height: 1;
+    cursor: pointer;
+    vertical-align: middle;
+    margin-left: 4px;
+    padding: 0;
+    transition: background 0.2s, border-color 0.2s, transform 0.15s;
+    flex-shrink: 0;
+}
+
+.coin-info-btn:hover {
+    background: rgba(160, 160, 160, 0.28);
+    border-color: rgba(200, 200, 200, 0.7);
+    transform: scale(1.15);
+}
+
+/* Overlay */
+.coin-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+}
+
+.coin-modal-overlay.is-open {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* Modal box */
+.coin-modal {
+    position: relative;
+    background: #16112a;
+    border: 1px solid rgba(168, 85, 247, 0.35);
+    border-radius: 18px;
+    padding: 2rem 2rem 1.75rem;
+    max-width: 420px;
+    width: 100%;
+    box-shadow: 0 24px 80px rgba(99, 102, 241, 0.25), 0 0 0 1px rgba(168,85,247,0.1);
+    transform: translateY(20px) scale(0.97);
+    transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.25s ease;
+}
+
+.coin-modal-overlay.is-open .coin-modal {
+    transform: translateY(0) scale(1);
+}
+
+/* Close button */
+.coin-modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.6);
+    font-size: 1.1rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: background 0.2s, color 0.2s;
+}
+
+.coin-modal-close:hover {
+    background: rgba(255,255,255,0.14);
+    color: #fff;
+}
+
+/* Header */
+.coin-modal-header {
+    margin-bottom: 1.5rem;
+}
+
+.coin-modal-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.coin-modal-header h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 0.4rem;
+}
+
+.coin-modal-intro {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.55);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Rate rows */
+.coin-modal-rates {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-bottom: 1.4rem;
+}
+
+.coin-rate-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 10px;
+    padding: 0.65rem 0.9rem;
+}
+
+.coin-rate-icon {
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    width: 24px;
+    text-align: center;
+}
+
+.coin-rate-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex: 1;
+    gap: 0.1rem;
+}
+
+.coin-rate-label {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.8);
+    font-weight: 500;
+}
+
+.coin-rate-sub {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.4);
+    font-weight: 400;
+}
+
+.coin-rate-cost {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #c084fc;
+    white-space: nowrap;
+}
+
+/* Per-tier breakdown */
+.coin-modal-breakdown {
+    background: rgba(99, 102, 241, 0.08);
+    border: 1px solid rgba(99, 102, 241, 0.22);
+    border-radius: 12px;
+    padding: 1rem 1.1rem;
+}
+
+.coin-breakdown-title {
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 0.6rem;
+}
+
+.coin-breakdown-total {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #a78bfa;
+    margin-bottom: 0.6rem;
+}
+
+.coin-breakdown-examples {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.7;
+    margin: 0;
+    padding-left: 1.1rem;
+}
+
+.coin-breakdown-examples li {
+    margin-bottom: 0.1rem;
+}
+
+@media (max-width: 480px) {
+    .coin-modal {
+        padding: 1.5rem 1.25rem 1.4rem;
+    }
+}
+
+/* Coin li two-line layout */
+.pcard-coin-li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.pcard-coin-label {
+    color: inherit;
+}
+
+.pcard-coin-value {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95em;
+}
+
+@media (max-width: 768px) {
+    .pcard-coin-li {
+        flex-direction: column !important;
+        align-items: flex-start;
+    }
+    .pcard-coin-value {
+        display: flex !important;
+        width: 100%;
+    }
+}
+

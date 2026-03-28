@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=33">
+    <link rel="stylesheet" href="style.css?v=46">
 </head>
 
 <body>
@@ -67,11 +67,9 @@
                     class="typing-cursor"></span>
             </h1>
             <p class="fade-in-up" style="transition-delay: 0.2s; max-width: 680px; margin: 0 auto 2.5rem;">
-                A personal teacher for each individual—from learning, planning, to revisioning.
-                <br class="hidden-mobile">
-                It doesn't just talk; it executes tasks to help you succeed.
+                A personal teacher for each individual—from learning, planning, to revisioning. It doesn't just talk; it executes tasks to help you succeed.
             </p>
-            <div class="fade-in-up" style="transition-delay: 0.3s; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <div class="fade-in-up hero-cta-group" style="transition-delay: 0.3s; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
                 <a href="#function-section" class="btn btn-primary btn-elastic glow-pulse magnetic">Explore Functions</a>
                 <a href="#pricing" class="btn btn-secondary btn-elastic magnetic">View Pricing</a>
             </div>
@@ -952,7 +950,10 @@
                         <ul class="pcard-features">
                             <li>10 Document Imports &amp; Indexing</li>
                             <li>20 pages of AI summaries / month</li>
-                            <li>120 Vibe Coins / month</li>
+                            <li class="pcard-coin-li">
+                                <span class="pcard-coin-label">Vibe Coins / month</span>
+                                <span class="pcard-coin-value">120 Coins <button class="coin-info-btn" data-tier="basic" aria-label="Vibe Coin details">!</button></span>
+                            </li>
                         </ul>
                         <div class="pcard-price-wrap">
                             <div class="pcard-price">$0<span>/mo</span></div>
@@ -973,7 +974,10 @@
                             <li>Unlimited notebooks &amp; PDF imports</li>
                             <li>Cloud Sync</li>
                             <li>20 pages of AI summaries / month</li>
-                            <li>120 Vibe Coins / month</li>
+                            <li class="pcard-coin-li">
+                                <span class="pcard-coin-label">Vibe Coins / month</span>
+                                <span class="pcard-coin-value">120 Coins <button class="coin-info-btn" data-tier="notetaker" aria-label="Vibe Coin details">!</button></span>
+                            </li>
                         </ul>
                         <div class="pcard-price-wrap">
                             <div class="pcard-price">$0.99<span>/mo</span></div>
@@ -994,7 +998,10 @@
                         <ul class="pcard-features">
                             <li>Unlimited notebooks &amp; PDF imports</li>
                             <li>Unlimited Summaries &amp; Indexing</li>
-                            <li>1,250 Vibe Coins / month</li>
+                            <li class="pcard-coin-li">
+                                <span class="pcard-coin-label">Vibe Coins / month</span>
+                                <span class="pcard-coin-value">1,250 Coins <button class="coin-info-btn" data-tier="pro" aria-label="Vibe Coin details">!</button></span>
+                            </li>
                         </ul>
                         <div class="pcard-price-wrap">
                             <div class="pcard-price">$19.99<span>/mo</span></div>
@@ -1014,7 +1021,10 @@
                         <ul class="pcard-features">
                             <li>Unlimited notebooks &amp; PDF imports</li>
                             <li>Unlimited Summaries &amp; Indexing</li>
-                            <li>1,800 Vibe Coins / month</li>
+                            <li class="pcard-coin-li">
+                                <span class="pcard-coin-label">Vibe Coins / month</span>
+                                <span class="pcard-coin-value">1,800 Coins <button class="coin-info-btn" data-tier="ultra" aria-label="Vibe Coin details">!</button></span>
+                            </li>
                         </ul>
                         <div class="pcard-price-wrap">
                             <div class="pcard-price">$24.99<span>/mo</span></div>
@@ -1025,6 +1035,47 @@
             </div>
         </div>
     </section>
+
+    <!-- Vibe Coin Info Modal -->
+    <div class="coin-modal-overlay" id="coinModalOverlay" role="dialog" aria-modal="true" aria-labelledby="coinModalTitle">
+        <div class="coin-modal">
+            <button class="coin-modal-close" id="coinModalClose" aria-label="Close">&times;</button>
+
+            <div class="coin-modal-header">
+                <span class="coin-modal-icon">🪙</span>
+                <h3 id="coinModalTitle">What are Vibe Coins?</h3>
+                <p class="coin-modal-intro">Vibe Coins are your monthly AI credit allowance. Spend them on any AI-powered feature — your way.</p>
+            </div>
+
+            <div class="coin-modal-rates">
+                <div class="coin-rate-item">
+                    <span class="coin-rate-icon">✍️</span>
+                    <div class="coin-rate-info">
+                        <span class="coin-rate-label">1 Custom Quiz</span>
+                        <span class="coin-rate-cost">3 coins</span>
+                    </div>
+                </div>
+                <div class="coin-rate-item">
+                    <span class="coin-rate-icon">💡</span>
+                    <div class="coin-rate-info">
+                        <span class="coin-rate-label">1 Study Action <span class="coin-rate-sub">(Hint / Auto-Grade Review)</span></span>
+                        <span class="coin-rate-cost">6 coins</span>
+                    </div>
+                </div>
+                <div class="coin-rate-item">
+                    <span class="coin-rate-icon">🎙️</span>
+                    <div class="coin-rate-info">
+                        <span class="coin-rate-label">1 Full Podcast <span class="coin-rate-sub">(~20 min)</span></span>
+                        <span class="coin-rate-cost">100 coins</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="coin-modal-breakdown" id="coinModalBreakdown">
+                <!-- filled by JS per tier -->
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer>
@@ -1084,6 +1135,87 @@
     <script src="reveal-wave-image.js?v=3"></script>
     <script src="script.js?v=24"></script>
     <script>
+        // Vibe Coin Modal
+        document.addEventListener('DOMContentLoaded', function () {
+            const TIER_DATA = {
+                basic: {
+                    total: 120,
+                    examples: [
+                        '1 Full Podcast (100 coins)',
+                        '+ 3 Study Action Hints (18 coins)',
+                        'OR skip audio → 40 Custom Quizzes (120 coins)'
+                    ]
+                },
+                notetaker: {
+                    total: 120,
+                    examples: [
+                        '1 Full Podcast (100 coins)',
+                        '+ 3 Study Action Hints (18 coins)',
+                        'OR skip audio → 40 Custom Quizzes (120 coins)'
+                    ]
+                },
+                pro: {
+                    total: 1250,
+                    examples: [
+                        '10 Full Podcasts (1,000 coins)',
+                        '+ 20 Study Actions (120 coins)',
+                        '+ 30 Custom Quizzes (90 coins)',
+                        'OR any mix you prefer'
+                    ]
+                },
+                ultra: {
+                    total: 1800,
+                    examples: [
+                        '15 Full Podcasts (1,500 coins)',
+                        '+ 30 Study Actions (180 coins)',
+                        '+ 30 Custom Quizzes (90 coins)',
+                        'OR any mix you prefer'
+                    ]
+                }
+            };
+
+            const overlay = document.getElementById('coinModalOverlay');
+            const closeBtn = document.getElementById('coinModalClose');
+            const breakdown = document.getElementById('coinModalBreakdown');
+
+            function openModal(tier) {
+                const data = TIER_DATA[tier];
+                if (!data) return;
+                const listItems = data.examples.map(function(e) {
+                    return '<li>' + e + '</li>';
+                }).join('');
+                breakdown.innerHTML =
+                    '<p class="coin-breakdown-title">This plan\'s monthly allowance</p>' +
+                    '<p class="coin-breakdown-total">🪙 ' + data.total.toLocaleString() + ' Vibe Coins / month</p>' +
+                    '<p class="coin-breakdown-title" style="margin-top:0.5rem">Example spend mix</p>' +
+                    '<ul class="coin-breakdown-examples">' + listItems + '</ul>';
+                overlay.classList.add('is-open');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeModal() {
+                overlay.classList.remove('is-open');
+                document.body.style.overflow = '';
+            }
+
+            document.querySelectorAll('.coin-info-btn').forEach(function (btn) {
+                btn.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    openModal(btn.dataset.tier);
+                });
+            });
+
+            closeBtn.addEventListener('click', closeModal);
+
+            overlay.addEventListener('click', function (e) {
+                if (e.target === overlay) closeModal();
+            });
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') closeModal();
+            });
+        }); // end DOMContentLoaded (coin modal)
+
         // Initialize the reveal wave image effect
         document.addEventListener('DOMContentLoaded', function() {
             console.log('DOM loaded, initializing RevealWaveImage...');
