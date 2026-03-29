@@ -3685,7 +3685,7 @@ footer {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(8, 8, 18, 0.98);
+    background: rgba(8, 8, 18, 0.99);
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);
     padding: 5rem 2rem 2rem;
@@ -3693,6 +3693,16 @@ footer {
     animation: slideIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     overflow-y: auto;
     gap: 0;
+}
+
+/* Hide all fixed overlapping elements when mobile menu is open */
+body.menu-open .flow-nebula-background,
+body.menu-open .flow-scene,
+body.menu-open .cursor-glow,
+body.menu-open .section-progress,
+body.menu-open .scroll-progress,
+body.menu-open .floating-orbs {
+    display: none !important;
 }
 
 @keyframes slideIn {
