@@ -1417,7 +1417,7 @@ nav {
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000;
+    z-index: 1080;
     background: linear-gradient(90deg, rgba(22, 18, 44, 0.72) 0%, rgba(9, 12, 28, 0.78) 50%, rgba(18, 16, 42, 0.72) 100%);
     backdrop-filter: blur(22px) saturate(180%);
     -webkit-backdrop-filter: blur(22px) saturate(180%);
@@ -3647,7 +3647,8 @@ footer {
     border: none;
     cursor: pointer;
     padding: 0;
-    z-index: 1001;
+    z-index: 1100;
+    position: relative;
 }
 
 .mobile-menu-btn .bar {
@@ -3684,11 +3685,11 @@ footer {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(8, 8, 18, 0.97);
+    background: rgba(8, 8, 18, 0.98);
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);
     padding: 5rem 2rem 2rem;
-    z-index: 998;
+    z-index: 1050;
     animation: slideIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     overflow-y: auto;
     gap: 0;
