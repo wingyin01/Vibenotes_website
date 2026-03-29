@@ -1795,10 +1795,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function showScene(scene, opacity = 1) {
         scene.classList.add('active');
         scene.style.display = 'flex'; // Show the scene
-        scene.style.opacity = opacity.toString();
         scene.style.visibility = 'visible';
         scene.style.zIndex = '100';
         scene.style.pointerEvents = 'auto';
+        scene.style.opacity = opacity.toString();
         updateSceneDebug();
     }
     
@@ -1937,7 +1937,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const heroEase = 1 - Math.pow(1 - heroProgress, 3);
             const burst = Math.sin(heroProgress * Math.PI);
 
-            showScene(sceneHero, 1 - heroProgress * 0.92);
+            // Smooth entrance: fade in over first 5% of scroll, then fade out
+            const entranceFade = scrollDirection === 'down' ? Math.min(1, scrollProgress / 0.05) : 1;
+            const exitFade = 1 - heroProgress * 0.92;
+            showScene(sceneHero, entranceFade * exitFade);
             sceneHero.style.transform = `scale(${0.9 + heroEase * 0.16}) translateY(${24 - heroEase * 24}px)`;
 
             const heroTitle = sceneHero.querySelector('.flow-main-title');
@@ -1974,9 +1977,19 @@ document.addEventListener('DOMContentLoaded', () => {
             const chaosProgress = (scrollProgress - 0.20) / 0.16;
             
             // Smooth fade in
-            showScene(sceneProblem, Math.min(1, chaosProgress * 2));
+            showScene(sceneProblem, Math.min(1, chaosProgress * 3));
             sceneProblem.style.transform = 'scale(1)';
             if (debugScene) debugScene.textContent = 'Problem';
+
+            // Animate scene title with blur-reveal-dramatic style entrance
+            const sceneTitle = sceneProblem.querySelector('.scene-title');
+            if (sceneTitle) {
+                const titleProgress = Math.min(1, chaosProgress * 5);
+                const titleEase = 1 - Math.pow(1 - titleProgress, 4);
+                sceneTitle.style.opacity = titleEase;
+                sceneTitle.style.filter = `blur(${(1 - titleEase) * 24}px)`;
+                sceneTitle.style.transform = `translateY(${(1 - titleEase) * 60}px) scale(${0.88 + titleEase * 0.12})`;
+            }
             
             // Animate chaos items with stagger
             const chaosItems = sceneProblem.querySelectorAll('.chaos-item');
@@ -2005,6 +2018,30 @@ document.addEventListener('DOMContentLoaded', () => {
             sceneExplosion.style.transform = 'scale(1)';
             const explosionProgress = (scrollProgress - 0.36) / 0.20;
             if (debugScene) debugScene.textContent = 'Explosion';
+
+            // Animate explosion scene title with blur-reveal entrance
+            const explosionTitle = sceneExplosion.querySelector('.scene-title');
+            if (explosionTitle) {
+                const titleProgress = Math.min(1, explosionProgress * 4);
+                const titleEase = 1 - Math.pow(1 - titleProgress, 4);
+                explosionTitle.style.opacity = titleEase;
+                explosionTitle.style.filter = `blur(${(1 - titleEase) * 24}px)`;
+                const isMobile = window.innerWidth <= 768;
+                if (isMobile) {
+                    explosionTitle.style.transform = `translateY(${(1 - titleEase) * 60}px) scale(${0.88 + titleEase * 0.12})`;
+                    // Stagger pill reveal based on scroll progress
+                    const pills = sceneExplosion.querySelectorAll('.mobile-feature-pill');
+                    pills.forEach((pill, i) => {
+                        const pillDelay = i * 0.06;
+                        const pillProgress = Math.min(1, Math.max(0, (explosionProgress - 0.15 - pillDelay) / 0.25));
+                        const pillEase = 1 - Math.pow(1 - pillProgress, 3);
+                        pill.style.opacity = pillEase;
+                        pill.style.transform = `translateY(${(1 - pillEase) * 14}px) scale(${0.92 + pillEase * 0.08})`;
+                    });
+                } else {
+                    explosionTitle.style.transform = `translateX(-50%) translateY(${(1 - titleEase) * 60}px) scale(${0.88 + titleEase * 0.12})`;
+                }
+            }
             
             // Cards explode out immediately
             sceneExplosion.classList.add('exploded');
@@ -2037,9 +2074,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 card.style.setProperty('--ty', `${ty}%`);
             });
             
-            // Fade in background image
+            // Fade in background image (desktop only — mobile handles it via CSS)
             const bgImage = sceneExplosion.querySelector('.explosion-bg-image');
-            if (bgImage) {
+            if (bgImage && window.innerWidth > 768) {
                 bgImage.style.opacity = explosionProgress * 0.3;
             }
         }
