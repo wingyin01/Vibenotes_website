@@ -1551,7 +1551,7 @@ nav.scrolled {
 }
 
 @media (max-width: 768px) {
-    .nav-links {
+    .nav-links:not(.mobile-open) {
         display: none;
         /* Hidden on mobile unless toggled via JS class */
     }
@@ -3322,7 +3322,7 @@ nav.scrolled {
         grid-column: span 1;
     }
 
-    .nav-links {
+    .nav-links:not(.mobile-open) {
         display: none;
     }
 
@@ -3678,7 +3678,7 @@ footer {
 
 /* Mobile Navigation Overlay */
 .nav-links.mobile-open {
-    display: flex;
+    display: flex !important;
     flex-direction: column;
     position: fixed;
     top: 0;
@@ -3811,7 +3811,7 @@ body.menu-open .floating-orbs {
         display: flex;
     }
 
-    .nav-links {
+    .nav-links:not(.mobile-open) {
         display: none;
     }
 
